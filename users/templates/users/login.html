@@ -1,0 +1,19 @@
+{% extends "core/base.html" %}
+{% block static %}
+<link href="/static/css/login.css" rel="stylesheet">
+{% endblock %}
+{% block title %}
+    Login
+{% endblock %}
+{% block main %}
+    
+    <div style="justify-content: center; text-align: center">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "core/base.html" %}
+{% block static %}
+<link href="/static/css/profile.css" rel="stylesheet">
+{% endblock %}
+{% block title %}
+    Profile
+{% endblock %}
+{% block main %}
+    {{ user.email }}
+{% endblock %}

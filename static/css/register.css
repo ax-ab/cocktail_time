@@ -1,0 +1,4 @@
+/* Overriding navbar coloring to indicate user current location */
+.navbar #nav_register a {
+  color: #f39c12 !important;
+}

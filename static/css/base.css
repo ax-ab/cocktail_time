@@ -1,0 +1,96 @@
+/* Overriding top navbar colors */
+.bg-dark {
+    background-color: #1c1e1f !important
+    /* background-color:#d1d8e0 !important */
+    }
+  
+  .navbar-brand
+  {
+    padding: 0 15px;
+    height: auto;
+    line-height: auto;
+  }
+  
+  .navbar-brand > img
+  {
+    height: 50px; /*Adjust this make the icon bigger or smaller*/
+    padding: 5px; /* padding: 15px; firefox bug fix */
+    width: auto;
+    filter: invert(76%) sepia(47%) saturate(4166%) hue-rotate(355deg) brightness(99%) contrast(92%);
+    -webkit-filter: invert(76%) sepia(47%) saturate(4166%) hue-rotate(355deg) brightness(99%) contrast(92%);
+  }
+  
+  /* Search field */
+  .has-search .form-control {
+    padding-left: 2.375rem;
+  }
+  
+  .has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #f39c12;
+  }
+  
+  input[type=search] {
+    /* width: 105px !important; HERE ONLY SHOWING SEARCH*/
+    width: 250px !important;
+    border: 0px solid #f39c12 !important;
+    background-position: 10px 10px !important; 
+    background-repeat: no-repeat !important;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    background: #4b4b4b !important;
+    color: #bdc3c7 !important;
+  }
+  
+  input[type="search"]::-webkit-search-cancel-button {
+  
+    /* Remove default */
+    -webkit-appearance: none;
+      
+    /* Now your own custom styles */
+    height: 10px;
+    width: 10px;
+    background-image: url('/static/icons/cancel.svg');  
+    /* Will place small red box on the right of input (positioning carries over) */
+  
+  }
+  
+  
+  /* Disabled as the expand effect was a bad UX */
+  /* input[type=search]:focus {
+    width: 100% !important;
+    border: 2px solid #f39c12 !important;
+  } */
+
+input {
+border-radius: 10px 10px 10px 10px !important;
+}
+
+input:focus, textarea:focus {
+outline: none !important;
+border: 0px solid #f39c12 !important;
+box-shadow: 0 0 0px #f39c12 !important;
+}
+
+.container {
+padding: 50px;
+}
+
+* {
+box-sizing: border-box;
+}
+    
+body {
+font-family: Arial, Helvetica, sans-serif;
+/* background: #636e72; */
+/* background: #272B30; CS50 used background  */
+background: #4b4b4b;
+/* background-image: url(''); */
+}
