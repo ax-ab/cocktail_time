@@ -18,8 +18,8 @@ def search(request):
         user = request.user
 
         if query:
-            result_query = Cocktail.objects.filter(Q(strDrink__contains=query) | Q(idDrink__contains=query))
-      
+            result_query = Cocktail.objects.filter(Q(strDrink__icontains=query) | Q(idDrink__icontains=query))
+
             print("\n----- result query -----")
             print(result_query)
 
