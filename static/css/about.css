@@ -7,10 +7,6 @@ body {
   background: linear-gradient(180deg, white 15%, #4b4b4b 100%);
 }
 
-footer {
-  height: 100vh;
-}
-
 #jumbotron {
   background-color: transparent;
 }
@@ -60,7 +56,7 @@ color: white;
   
   /* Cocktail pngs */
   #about {
-    height: 120vh !important;
+    height: 150vh !important;
   }
   /* Overlay and text */
   #about_text {
