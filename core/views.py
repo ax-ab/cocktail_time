@@ -23,13 +23,13 @@ def search(request):
             # Distinct was not working. maybe try now after postgres 
             # Making sure that users that are not logged in can still search
             if not (user.id):
-                result_annotated = result_query.annotate(user_fav=Value(False, BooleanField())).order_by('strDrink')#.distinct('strDrink')
+                result_annotated = result_query.annotate(user_fav=Value(False, BooleanField())).order_by('idDrink')#.distinct('strDrink')
             else:
                 result_annotated = result_query.annotate(user_fav=Case(
                                 When(customuser=user, then=True),
                                 default=False,
                                 output_field=BooleanField()
-                )).order_by('-user_fav', 'strDrink')#.distinct('strDrink')
+                )).order_by('-user_fav','idDrink')#.distinct('strDrink')
 
             result_final = result_annotated
 
