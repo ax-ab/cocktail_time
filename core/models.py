@@ -3,7 +3,7 @@ from django.db import models
 class Cocktail(models.Model):
 
     idDrink = models.AutoField(primary_key=True)
-    strDrink = models.CharField(max_length=30)
+    strDrink = models.CharField(max_length=100)
     strTags = models.CharField(max_length=100)
     strCategory = models.CharField(max_length=100)
     strIBA = models.CharField(max_length=100)
