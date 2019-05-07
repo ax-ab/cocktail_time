@@ -264,11 +264,18 @@ clear: both;
   }
 }
 
+/* Hiding the search bar in navigation when it appears in the body */
 /* Fixing the button length when smaller screen size */
 @media screen and (max-width: 768px) {
   .btn {
       width: 100%;
       display: block;
+  }
+  #nav_search {
+    display: none;
+  }
+  #secondary_mobile_searchbar {
+    display: block !important;
   }
 }
 
@@ -277,6 +284,9 @@ clear: both;
       width: 100%;
       display: block;
       margin-bottom: 10px;
+  }
+  #nav_search {
+    display: none;
   }
   #secondary_mobile_searchbar {
     display: block !important;
@@ -319,7 +329,7 @@ margin: 0 -10px;
 /* border-color: #f39c12 !important; */
 border-color: #1c1e1f !important;
 margin-top: 40px;
-background-color: #4b4b4b !important;
+background-color: #1c1e1f !important;
 border-radius: 10px 10px 10px 10px;
 border-width: 2px;
 }
