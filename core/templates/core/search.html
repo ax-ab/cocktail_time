@@ -27,6 +27,15 @@
         </div>
     </div>
 </form> -->
+<!-- form-inline ml-sm-1 mr-sm-1 -->
+<form id="secondary_mobile_searchbar" action="/search" method="GET" class="" style="display: none">
+    <div class="form-group row text-center justify-content-center">
+        <div class="form-group has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input class="form-control mr-sm-2" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">
+        </div>
+    </div>
+</form> 
  
 <!-- Using "object" as this was the way to make sure the animation resetted each time and not using a cached version. previosuly "div" -->
 <object id="loader" type="image/svg+xml" data="/static/icons/loader.svg"></object>

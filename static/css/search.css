@@ -1,5 +1,5 @@
-/* Overriding navbar coloring to indicate user current location */
-.navbar #nav_search input {
+/* Overriding navbar and the mobile searchbar (hidden) coloring to indicate user current location */
+.navbar #nav_search input, #secondary_mobile_searchbar input {
   border: 2px solid #f39c12 !important;
   border-color: #f39c12 !important;
 }
@@ -278,6 +278,10 @@ clear: both;
       display: block;
       margin-bottom: 10px;
   }
+  #secondary_mobile_searchbar {
+    display: block !important;
+  }
+
 }
 
 /* scroll on back of card: Make sure that the height here is adjust to watever the card is decided to be */

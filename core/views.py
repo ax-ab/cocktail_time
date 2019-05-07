@@ -20,7 +20,6 @@ def search(request):
         if query:
             result_query = Cocktail.objects.filter(Q(strDrink__icontains=query) | Q(idDrink__icontains=query))
 
-            # Distinct was not working. maybe try now after postgres 
             # Making sure that users that are not logged in can still search
             if not (user.id):
                 result_annotated = result_query.annotate(user_fav=Value(False, BooleanField())).order_by('idDrink')#.distinct('strDrink')

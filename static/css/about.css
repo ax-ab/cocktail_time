@@ -53,8 +53,9 @@ color: white;
 
 @media screen and (max-width: 600px) {
   
-  #jubotron > div {
-    padding-top: 0vh
+  /* Moving the jumbotron up a bit on mobile so that the arrow down animation can be seen */
+  #jumbotron > div {
+    padding-top: 0vh !important;
   }
   
   /* Cocktail pngs */
@@ -192,7 +193,7 @@ color: white;
 
 .center-con, .center-con > a {
   display: flex;
-  height: 20vh;
+  height: 15vh;
   align-items: center;
   justify-content: center;
 }
