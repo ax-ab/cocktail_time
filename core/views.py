@@ -20,40 +20,34 @@ def search(request):
         if query:
             result_query = Cocktail.objects.filter(Q(strDrink__icontains=query) | Q(idDrink__icontains=query))
 
-            print("\n----- result query -----")
-            print(result_query)
-
             # Distinct was not working. maybe try now after postgres 
             # Making sure that users that are not logged in can still search
             if not (user.id):
-                result_annotated = result_query.annotate(user_fav=Value(False, BooleanField()))
+                result_annotated = result_query.annotate(user_fav=Value(False, BooleanField())).order_by('strDrink')#.distinct('strDrink')
             else:
                 result_annotated = result_query.annotate(user_fav=Case(
                                 When(customuser=user, then=True),
                                 default=False,
                                 output_field=BooleanField()
-                ))
+                )).order_by('-user_fav', 'strDrink')#.distinct('strDrink')
 
-            print("\n----- result annotated -----")
-            print(result_annotated)
+            result_final = result_annotated
 
-            favorites = result_annotated.filter(user_fav=True)
-            non_favorites = result_annotated.filter(user_fav=False)
+            # Below is to be reactivated in case that we see duplicates
+            # favorites = result_annotated.filter(user_fav=True)
+            # non_favorites = result_annotated.filter(user_fav=False)
     
-            result_final = []
+            # result_final = []
 
-            #Removing duplicates
-            #TODO: Search on ID instead .id ...
-            for cocktail in non_favorites:
-                if cocktail not in favorites:
-                    result_final.append(cocktail)
-            for cocktail in favorites:
-                result_final.append(cocktail)
+            # #Removing duplicates
+            # #TODO: Search on ID instead .id ...
+            # for cocktail in non_favorites:
+            #     if cocktail not in favorites:
+            #         result_final.append(cocktail)
+            # for cocktail in favorites:
+            #     result_final.append(cocktail)
 
-            result_final.sort(key=attrgetter('user_fav'), reverse=True)
-            
-            print("\n----- result final -----")
-            print(result_final)
+            # result_final.sort(key=attrgetter('user_fav'), reverse=True)
 
             total_items = len(result_final)
             items = request.GET.get('all_items', 12) 
@@ -72,9 +66,6 @@ def search(request):
                 result_final_page = paginator.page(1)
             except EmptyPage:
                 result_final_page = paginator.page(paginator.num_pages)
-
-            print("\n----- total items -----")
-            print(total_items)
 
             # Will be displayed when the query returned none
             error_msg = "No cocktails match your search"
@@ -98,7 +89,7 @@ def search(request):
     #TODO: Build a post request response as it is not used
     return render(request, 'core/search.html', context)
 
-##Used for search
+# Used for search
 def update_favorites(request):
     if request.method == 'POST':
         
