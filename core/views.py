@@ -19,7 +19,6 @@ def search(request):
 
         if query:
             result_query = Cocktail.objects.filter(Q(strDrink__contains=query) | Q(idDrink__contains=query))
-            #print(result_query)
       
             print("\n----- result query -----")
             print(result_query)
