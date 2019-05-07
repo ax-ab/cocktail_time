@@ -21,6 +21,9 @@ def search(request):
             result_query = Cocktail.objects.filter(Q(strDrink__contains=query) | Q(idDrink__contains=query))
             #print(result_query)
       
+            print("\n----- result query -----")
+            print(result_query)
+
             # Distinct was not working. maybe try now after postgres 
             # Making sure that users that are not logged in can still search
             if not (user.id):
@@ -31,6 +34,9 @@ def search(request):
                                 default=False,
                                 output_field=BooleanField()
                 ))
+
+            print("\n----- result annotated -----")
+            print(result_annotated)
 
             favorites = result_annotated.filter(user_fav=True)
             non_favorites = result_annotated.filter(user_fav=False)
@@ -47,6 +53,9 @@ def search(request):
 
             result_final.sort(key=attrgetter('user_fav'), reverse=True)
             
+            print("\n----- result final -----")
+            print(result_final)
+
             total_items = len(result_final)
             items = request.GET.get('all_items', 12) 
 
@@ -65,8 +74,8 @@ def search(request):
             except EmptyPage:
                 result_final_page = paginator.page(paginator.num_pages)
 
-            # print(result_final)
-            # print(total_items)
+            print("\n----- total items -----")
+            print(total_items)
 
             # Will be displayed when the query returned none
             error_msg = "No cocktails match your search"
