@@ -32,22 +32,6 @@ def search(request):
 
             result_final = result_annotated
 
-            # Below is to be reactivated in case that we see duplicates
-            # favorites = result_annotated.filter(user_fav=True)
-            # non_favorites = result_annotated.filter(user_fav=False)
-    
-            # result_final = []
-
-            # #Removing duplicates
-            # #TODO: Search on ID instead .id ...
-            # for cocktail in non_favorites:
-            #     if cocktail not in favorites:
-            #         result_final.append(cocktail)
-            # for cocktail in favorites:
-            #     result_final.append(cocktail)
-
-            # result_final.sort(key=attrgetter('user_fav'), reverse=True)
-
             total_items = len(result_final)
             items = request.GET.get('all_items', 12) 
 
