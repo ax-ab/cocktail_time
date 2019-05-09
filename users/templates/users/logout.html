@@ -1,6 +1,7 @@
 {% extends "core/base.html" %}
+{% load static %}
 {% block static %}
-<link href="/static/css/logout.css" rel="stylesheet">
+<link href="{% static "css/logout.css" %}" rel="stylesheet">
 {% endblock %}
 {% block title %}
     Logout
@@ -8,7 +9,7 @@
 {% block main %}
     
 <div id="bartender_search" class="fadein" style="text-align: center; position: relative;">
-    <img src="../static/images/bartender_search.png" style=" width: 150px; height: 100%; display: inline-block;">
+    <img src="{% static "images/bartender_search.png" %}" style=" width: 150px; height: 100%; display: inline-block;">
     <h4><span class="badge badge-warning" style="background-color: #f39c12">You are successfully logged out</span></h4>
 </div>
 

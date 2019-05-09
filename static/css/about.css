@@ -25,7 +25,7 @@ position: relative;
 }
 
 #about_text img {
-width: 150px;
+width: 125px;
 height: 100%;
 display: inline-block;
 }
@@ -36,7 +36,7 @@ overflow:hidden;
 margin-left: calc(-40% + 0px);
 margin-top: calc(-125px); 
 height: 175%; 
-line-height: 175%; 
+line-height: 150%; 
 width: calc(80% - 0px); 
 padding: 50px; 
 text-align: center; 
@@ -72,13 +72,19 @@ color: white;
     padding: 30px; 
     width: 150% !important;
     height: 115%;
-    
+    line-height: 175%; 
   }
+    
   #mojito {
-    margin-left: 10%;
+    margin-left: 15% !important;
+
   }
   #fashioned {
-    margin-left: 5%;
+    margin-left: 10% !important;
+    
+  }
+  #gt {
+    margin-left: 15% !important;
   }
   
 }
@@ -101,6 +107,19 @@ color: white;
     width: 75px;
     height: 100%;
     display: inline-block;
+  }
+
+  #fashioned {
+    margin-top: 50px;
+  }
+
+  #mojito {
+    margin-left: 20px;
+  }
+
+  #gt {
+    margin-top: 35px;
+    width: 100px !important;
   }
 
 

@@ -2,3 +2,21 @@
 .navbar #nav_register a {
   color: #f39c12 !important;
 }
+
+.register-button {
+  background-color: #f39c12 !important;
+  border: 0px solid #f39c12 !important;
+  color: black;
+  /* width: 80%; */
+  margin-left: 35%;
+}
+
+.register-button:hover {
+  color: black !important;
+}
+
+@media screen and (max-width: 600px) {
+  #register-container {
+    margin-top: -10vh !important;
+  }
+}

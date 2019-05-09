@@ -4,20 +4,21 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
 
-from .decorators import student_required
+# from .decorators import student_required
 
 def register(request):
-    
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
-        
+
         if form.is_valid():
             new_user = form.save(commit=False)
             
             #new_user.is_student = True
             new_user.save()
-
-            messages.success(request, 'User account created successfully')
+            
+            # https://getbootstrap.com/docs/4.0/components/alerts/
+            messages.success(request, 'Welcome! You are now logged in')
+            # BELOW IS NOT NEEDED AS THE USER IS ALREADY AUTHENTICATED WHEN CREATED
             # new_user = authenticate(username=form.cleaned_data['email'],
             #                         password=form.cleaned_data['password'],
             #                         )

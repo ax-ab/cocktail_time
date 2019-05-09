@@ -2,3 +2,16 @@
 .navbar #nav_login a {
   color: #f39c12 !important;
 }
+
+.login-button {
+  background-color: #f39c12 !important;
+  border: 0px solid #f39c12 !important;
+  color: black;
+  /* width: 80%; */
+  margin-left: 35%;
+}
+
+.login-button:hover {
+  color: black !important;
+}
+

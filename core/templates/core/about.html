@@ -1,13 +1,18 @@
 {% extends "core/base.html" %}
+{% load static %}
 {% block static %}
-<link href="/static/css/about.css" rel="stylesheet">
-<script src="/static/js/about.js"></script>
+<link href="{% static "css/about.css" %}" rel="stylesheet">
+<script src="{% static "js/about.js" %}"></script>
 {% endblock %}
 {% block title %}
     About
 {% endblock %}
 
 {% block header %}
+<!-- https://www.htmlgoodies.com/tutorials/web_graphics/article.php/3480001/So-You-Want-To-Pre-Load-Huh.htm -->
+<link rel="preload" as="image" href="{% static "images/bartender.png" %}">
+<link rel="preload" as="image" href="{% static "icons/down-arrow.svg" %}">
+
  <!--JUMBOTRON-->
  <div id="jumbotron" class="jumbotron jumbotron-fluid" style="text-align: center; position: relative; height: 100vh">
     
@@ -19,7 +24,7 @@
         </div>
         <br>
         <div id="bartender" class="slide">
-            <img src="static/images/bartender.png">
+            <img src="{% static "images/bartender.png" %}">
         </div>
         
         <div class="center-con fadein">
@@ -43,9 +48,9 @@
     <h1 style="text-align: center; padding-top: 5vh; color: #4b4b4b">About</h1>
     
     <div id="about_text" class="slideanim" style="margin-top: 15vh; margin-bottom: 15vh;" >
-    <img id="fashioned" src="/static/images/fashioned.png">
-    <img id="mojito" src="/static/images/mojito.png">
-    <img src="/static/images/gt.png">
+    <img id="fashioned" src="{% static "images/fashioned.png" %}">
+    <img id="mojito" src="{% static "images/mojito.png" %}">
+    <img id="gt" src="{% static "images/gt.png" %}">
                 
     <div>
         <p style="font-size: larger">
@@ -93,11 +98,11 @@
 <div style="height: 50vh; background-color: transparent; position: relative; padding-top: 15vh;">
 
         <div id="cocktail" class="">
-            <img src="static/images/cocktail.png">
+            <img src="{% static "images/fashioned.png" %}">
         </div>
 
     <br>
-    <p>Powered by cocktaildb.com</p>
+    <p>Powered by thecocktaildb.com</p>
     <br>
 
 </div>
