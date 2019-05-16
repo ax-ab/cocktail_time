@@ -79,6 +79,13 @@ border: 0px solid #f39c12 !important;
 box-shadow: 0 0 0px #f39c12 !important;
 }
 
+input,
+textarea,
+[contenteditable] {
+  caret-color: gray;
+   /* #f39c12; */
+}
+
 .container {
 padding: 50px;
 }

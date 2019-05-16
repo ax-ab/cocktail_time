@@ -3,7 +3,7 @@
   color: #f39c12 !important;
 }
 
-.register-button {
+.submit-button {
   background-color: #f39c12 !important;
   border: 0px solid #f39c12 !important;
   color: black;
@@ -11,7 +11,7 @@
   margin-left: 35%;
 }
 
-.register-button:hover {
+.submit-button:hover {
   color: black !important;
 }
 

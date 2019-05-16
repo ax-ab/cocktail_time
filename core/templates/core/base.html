@@ -57,7 +57,16 @@
                             <div class="form-group row text-left justify-content-left">
                                 <div class="form-group has-search">
                                     <span class="fa fa-search form-control-feedback"></span>
+                                    <!-- Enables autofocus for the relevant scenarios -->
+                                    {% if request.path == '/search/' %}
+                                        {% if request.GET.q == '' or request.GET.q == None or not result %}
+                                            <input autofocus autocomplete="off" class="form-control mr-sm-2" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">
+                                            {% else %}
+                                            <input autocomplete="off" class="form-control mr-sm-2" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">
+                                            {% endif %}
+                                    {% else %}
                                     <input autocomplete="off" class="form-control mr-sm-2" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">
+                                    {% endif %}
                                 </div>
                             </div>
                         </form> 
