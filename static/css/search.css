@@ -227,7 +227,21 @@ color: #bdc3c7;
 /* list-style: none; */
 list-style-image: url('/static/icons/icon.svg');    
 }
-  
+
+/* To be deleted when demo card has been done */
+/* 
+#demo_front, #demo_back {
+  width: 25% !important; 
+  margin-left: 37%;
+}
+
+@media screen and (max-width: 600px) {
+  #demo_front, #demo_back {
+    width: 100% !important; 
+    margin-left: 0%;
+  }
+}
+   */
 
 /* Float four columns side by side */
 .column {
@@ -291,6 +305,10 @@ clear: both;
   #secondary_mobile_searchbar {
     display: block !important;
   }
+  /* In order to center the error message on mobile */
+  #error_message {
+    margin-left: -15px !important;
+  }
 
 }
 
@@ -326,10 +344,17 @@ margin: 0 -10px;
 
 /* Used for the load more button at the end of the page */
 #loadremaining {
-/* border-color: #f39c12 !important; */
+  /* border-color: #f39c12 !important; */
 border-color: #1c1e1f !important;
 margin-top: 40px;
 background-color: #1c1e1f !important;
 border-radius: 10px 10px 10px 10px;
 border-width: 2px;
 }
+
+#loadremaining_wrapper {
+  display: none;
+  text-align: center;
+  position: relative;
+  margin: 0 -10px;
+  }

@@ -63,10 +63,14 @@ def search(request):
 
         elif not query:
             #Empty query
+            highlighted_cocktails = list(Cocktail.objects.filter(idDrink__in=(11003,11001,12127,17206,11007,11005,11004,11009)))
             error_msg = "Type in a keyword to find cocktails"
+
+            print(highlighted_cocktails)
 
             context = {
             'error_msg':error_msg,
+            'result':highlighted_cocktails
             }
         
     #TODO: Build a post request response as it is not used

@@ -3,8 +3,31 @@ $(window).on('load', function() {
 
     $("#loader").delay(1000).fadeOut("fast", function() {
 
-        $("#cocktailSection, #search_results").fadeIn("slow");
+        $("#cocktailSection, #search_results, #loadremaining_wrapper").fadeIn("slow");
+        
+        //For '/search/' GET request as a demo of flipped card
+        if (window.location.pathname == '/search/' && window.location.search == '') {
+            
+            //Demo flip animation. Timeout is required as js doesnt know when the animation has ended
+            function flip() {
+                $('#1_container').toggleClass('flipped');
+            }
 
+            flip(
+                setTimeout(
+                    function(){ flip(
+                        setTimeout(
+                            function(){ $('#cocktailSection').fadeOut("slow", 
+                                function() {
+                                    $('#demo_search_hint').fadeIn("slow")
+                                }
+                            )}
+                        , 1000)
+                    )   }
+                , 1000)
+            );
+
+        }
         // Scrolling to where we were last
         // console.log($("#all_items").attr("value"));
         if ($("#all_items").attr("value") == 'true') {
