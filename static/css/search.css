@@ -358,3 +358,14 @@ border-width: 2px;
   position: relative;
   margin: 0 -10px;
   }
+
+  [name="favorite_loader"] {
+    display: none;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    z-index: 9999999;
+    margin-left: -40px;
+    margin-top: -15px;
+    
+  }

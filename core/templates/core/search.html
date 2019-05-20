@@ -57,11 +57,11 @@
                                 
                                 <!-- Badge in the body of the card -->
                                 {% if user.is_authenticated %}
-                                <i id="{{ r.idDrink }}" name="favorite" class="{% if r.user_fav %}fas fa-heart card-badge{% else %}far fa-heart card-badge{% endif %}"></i>
-                                
+                                <i id="{{ r.idDrink }}" name="favorite" class="{% if r.user_fav %}fas fa-heart card-badge{% else %}far fa-heart card-badge{% endif %}">
+                                <object name="favorite_loader" id="{{ r.idDrink }}_favorite_loader" type="image/svg+xml" data="{% static "icons/loader.svg" %}"></object>
+                                </i>
                                 {% else %}
                                 <i id="{{ r.idDrink }}" name="favorite" class="far fa-heart card-badge "></i>
-                                
                                 {% endif %}
                                 
                                 
