@@ -16,8 +16,28 @@ def search(request):
     if request.method == 'GET':
         query = request.GET.get('q','')
         user = request.user
+        all_items = request.GET.get('all_items')
+        show_favorites = request.GET.get('show_favorites')
 
-        if query:
+    #    If show_favorites is not None and the user is autenticated return all favorites.
+    #    HTML/CSS: if no favorites then new badge text that says that no favorites are selected
+        if show_favorites is not None and user.id: 
+            
+            result_favorites = Cocktail.objects.filter(customuser=user).annotate(user_fav=Value(True, BooleanField())).order_by('idDrink')
+            # print(result_favorites)
+            
+            error_msg = "You have not added any cocktails to your favorites"
+
+            context = {
+                'result':result_favorites,
+                'error_msg':error_msg,
+                'search_location':'favorites'
+            }
+
+        elif show_favorites is not None and not user.id:
+            return HttpResponse('Please log in to show favorites')
+
+        elif query:
             result_query = Cocktail.objects.filter(Q(strDrink__icontains=query) | Q(idDrink__icontains=query))
 
             # Making sure that users that are not logged in can still search
@@ -35,7 +55,7 @@ def search(request):
             total_items = len(result_final)
             items = request.GET.get('all_items', 12) 
 
-            if request.GET.get('all_items'):
+            if all_items:
                 items = total_items
             
             # Makes sure that the standard response is one in case it was just a simple search
@@ -58,22 +78,25 @@ def search(request):
             'error_msg':error_msg,
             'total_items':total_items,
             'items': len(result_final_page),
-            'remaining_items': (total_items - items)
+            'remaining_items': (total_items - items),
+            'search_location':'query'
             }
 
         elif not query:
             #Empty query
             highlighted_cocktails = list(Cocktail.objects.filter(idDrink__in=(11003,11001,12127,17206,11007,11005,11004,11009)))
             error_msg = "Type in a keyword to find cocktails"
-
-            print(highlighted_cocktails)
+            # search_location = "demo"
+            # print(highlighted_cocktails)
 
             context = {
             'error_msg':error_msg,
-            'result':highlighted_cocktails
+            'result':highlighted_cocktails,
+            'search_location':'demo'
             }
         
     #TODO: Build a post request response as it is not used
+    print(context)
     return render(request, 'core/search.html', context)
 
 # Used for search

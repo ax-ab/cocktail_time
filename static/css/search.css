@@ -282,8 +282,9 @@ clear: both;
 /* Fixing the button length when smaller screen size */
 @media screen and (max-width: 768px) {
   .btn {
-      width: 100%;
+      width: 90%;
       display: block;
+      margin-left: 15px;
   }
   #nav_search {
     display: none;
@@ -291,6 +292,19 @@ clear: both;
   #secondary_mobile_searchbar {
     display: block !important;
   }
+  #show_favorites_btn {
+    display: none;
+  }
+  #show_favorites_btn_mobile {
+    display: block !important;
+  }
+  .favorites_unclicked {
+    border: 2px solid black !important;
+  }
+  .favorites_clicked {
+    border: 0px solid black !important;
+  }
+
 }
 
 @media screen and (max-width: 600px) {
@@ -305,6 +319,20 @@ clear: both;
   #secondary_mobile_searchbar {
     display: block !important;
   }
+  #show_favorites_btn {
+    display: none;
+  }
+  #show_favorites_btn_mobile {
+    display: block !important;
+    border: 2px solid black;
+  }
+  .favorites_unclicked {
+    border: 2px solid black !important;
+  }
+  .favorites_clicked {
+    border: 0px solid black !important;
+  }
+
   /* In order to center the error message on mobile */
   #error_message {
     margin-left: -15px !important;

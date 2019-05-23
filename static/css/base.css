@@ -86,6 +86,38 @@ textarea,
    /* #f39c12; */
 }
 
+#show_favorites {
+  padding: 0px !important;
+  
+  /* display: none; */
+}
+
+/*makes sure that hyperlinks are not formatted*/
+#show_favorites a, #show_favorites a:hover {
+  /* color: gray; */
+  /* visited, active link */
+  color: inherit;
+  text-decoration: none;
+}
+
+.favorites_clicked {
+  height: 38px;
+  border-radius: 10px 10px 10px 10px !important;
+  
+  border: 2px solid #f39c12 !important;
+  background-color: #f39c12;
+  color: black !important;
+}
+
+.favorites_unclicked {
+  height: 38px;
+  border-radius: 10px 10px 10px 10px !important;
+  
+  border: 2px solid #4b4b4b !important;
+  background-color: transparent;
+  color: gray;
+}
+
 .container {
 padding: 50px;
 }

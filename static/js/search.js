@@ -59,6 +59,7 @@ $(window).on('load', function() {
 $(document).ready(function() {
 
     //Disables interactivity for the demosession
+    console.log(isSearchLandingPage)
     if (!isSearchLandingPage) {
 
         // TOGGLE FLIP CARDS
