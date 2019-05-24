@@ -14,7 +14,7 @@ def about(request):
 def search(request):
     
     if request.method == 'GET':
-        query = request.GET.get('q','')
+        query = request.GET.get('q')
         user = request.user
         all_items = request.GET.get('all_items')
         show_favorites = request.GET.get('show_favorites')
@@ -26,7 +26,8 @@ def search(request):
             result_favorites = Cocktail.objects.filter(customuser=user).annotate(user_fav=Value(True, BooleanField())).order_by('idDrink')
             # print(result_favorites)
             
-            error_msg = "You have not added any cocktails to your favorites"
+            error_msg = """You have not added any cocktails 
+            to your favorites"""
 
             context = {
                 'result':result_favorites,
@@ -89,10 +90,15 @@ def search(request):
             # search_location = "demo"
             # print(highlighted_cocktails)
 
+            if query is '':
+                search_location = 'empty_query'
+            elif query is None:
+                search_location = 'demo'
+
             context = {
             'error_msg':error_msg,
             'result':highlighted_cocktails,
-            'search_location':'demo'
+            'search_location':search_location
             }
         
     #TODO: Build a post request response as it is not used

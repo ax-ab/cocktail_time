@@ -58,7 +58,7 @@
                                 <div class="form-group has-search">
                                     <span class="fa fa-search form-control-feedback"></span>
                                     <!-- Enables autofocus for the relevant scenarios -->
-                                    {% if not search_location == 'query' and not search_location == 'favorites' %}
+                                    {% if search_location == 'empty_query' or search_location == 'demo' %}
                                         <input autofocus autocomplete="off" class="form-control mr-sm-2" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">                                        
                                     {% else %}
                                         <input autocomplete="off" class="form-control mr-sm-2" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">
@@ -67,6 +67,7 @@
                             </div>
                         </form>
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="nav-link ml-sm-2 mr-sm-2" id="show_favorites">
                         {% if search_location == 'favorites' %}
                         <a id="show_favorites_btn" class="btn favorites_clicked" href="/search/?q={{ request.GET.q }}">Favorites</a>
@@ -74,6 +75,7 @@
                         <a id="show_favorites_btn" class="btn favorites_unclicked" href="/search/?q={{ request.GET.q }}&show_favorites">Favorites</a>
                         {% endif %}
                     </li>
+                    {% endif %}
                     <!-- <li class="nav-item"><a class="nav-link" href="/#about">About</a></li> -->
                     
                 </ul>

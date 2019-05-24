@@ -21,25 +21,28 @@
     <div class="form-group row text-center justify-content-center">
         <div class="form-group has-search">
             <span class="fa fa-search form-control-feedback"></span>
-            <input autocomplete="off" class="form-control" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">
+            <!-- Autofocus is handled through js as it has to happen after the fade to search message -->
+            <input id="secondary_mobile_searchbar_input" autocomplete="off" class="form-control" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">
         </div>
     </div>
 </form>
-{% if search_location == 'favorites' %}
-<div id="show_favorites">
-    <a id="show_favorites_btn_mobile" class="btn favorites_clicked" href="/search/?q={{ request.GET.q }}" style="display: none; margin-top: -2vh; margin-bottom: 3vh;">Favorites</a>
-</div>
-{% else %}
-<div id="show_favorites">
-    <a id="show_favorites_btn_mobile" class="btn favorites_unclicked" href="/search/?q={{ request.GET.q }}&show_favorites" style="display: none; margin-top: -2vh; margin-bottom: 3vh;">Favorites</a>
-</div>
+{% if user.is_authenticated %}
+    {% if search_location == 'favorites' %}
+    <div id="show_favorites">
+        <a id="show_favorites_btn_mobile" class="btn favorites_clicked" href="/search/?q={{ request.GET.q }}" style="display: none; margin-top: -2vh; margin-bottom: 3vh;">Favorites</a>
+    </div>
+    {% else %}
+    <div id="show_favorites">
+        <a id="show_favorites_btn_mobile" class="btn favorites_unclicked" href="/search/?q={{ request.GET.q }}&show_favorites" style="display: none; margin-top: -2vh; margin-bottom: 3vh;">Favorites</a>
+    </div>
+    {% endif %}
 {% endif %}
  
 <!-- Using "object" as this was the way to make sure the animation resetted each time and not using a cached version. previosuly "div" -->
 <object id="loader" type="image/svg+xml" data="{% static "icons/loader.svg" %}"></object>
 
 <!-- mb-5 below is needed for the element below to recognize the space of the badge. special case -->
-{% if result and not search_location == 'demo' and not search_location == 'favorites' %}
+{% if result and search_location == 'query' %}
 <div id="search_results" class="mb-5">
 <h4><span class="badge badge-dark" style="position: absolute; top: 0px; right: 0px;">Showing {{ items }} out of {{ total_items }} cocktails</span></h4>
 </div>
@@ -50,7 +53,7 @@
 <!-- Row is not needed as we have moved the margin to cocktail section -->
 
 
-    {% if result and not search_location == 'demo' %}
+    {% if result and search_location == 'favorites' or search_location == 'query' %}
     
     <div id="cocktailSection" class="row">
         {% for r in result %}
@@ -260,7 +263,7 @@
         <div id="bartender_search" class="">
             <img src="{% static "images/bartender_search.png" %}">
         </div>
-        <h4><span id="error_message" class="badge badge-light">{{ error_msg }}</span></h4>
+        <h4><span id="error_message" class="badge badge-light">{{ error_msg|linebreaksbr }}</span></h4>
     </div>
     
     <div id="cocktailSection" class="row">
@@ -463,17 +466,15 @@
         <div id="bartender_search" class="">
             <img src="{% static "images/bartender_search.png" %}">
         </div>
-        <h4><span class="badge badge-light">{{ error_msg }}</span></h4>
+        <h4><span class="badge badge-light">{{ error_msg|linebreaksbr }}</span></h4>
     </div>
     {% endif %}
 
     {% if result.has_next and request.GET.q  %}
     <div id="loadremaining_wrapper" class="row">
-        <button style="font-size: 20px;" id="loadremaining" class="btn btn-primary" onclick="window.location.href = '?q={{ request.GET.q }}&all_items=True';">Load <span class="badge badge-light">{{ remaining_items }}</span> more cocktails</a>
+        <a style="font-size: 20px;" id="loadremaining" class="btn btn-primary" href="/search/?q={{ request.GET.q }}&all_items=True';">Load <span class="badge badge-light">{{ remaining_items }}</span> more cocktails</a>
         <!-- <button class="" href="{% if request.GET.q %}?q={{ request.GET.q }}&all_items=True{% endif %}">Load {{ remaining_items }} more cocktails</a> -->
     </div>
     {% endif %}
-
-
 
 {% endblock %}

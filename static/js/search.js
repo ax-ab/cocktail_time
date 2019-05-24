@@ -9,7 +9,6 @@ $(window).on('load', function() {
         console.log(isSearchLandingPage);
         //For '/search/' GET request as a demo of flipped card
         if (isSearchLandingPage) {
-            
             //Demo flip animation. Timeout is required as js doesnt know when the animation has ended
             function flip() {
                 $('#1_container').toggleClass('flipped');
@@ -22,7 +21,8 @@ $(window).on('load', function() {
                             setTimeout(
                                 function(){ $('#cocktailSection').fadeOut("slow", 
                                     function() {
-                                        $('#demo_search_hint').fadeIn("slow")
+                                        $('#demo_search_hint').fadeIn("slow");
+                                        $('#secondary_mobile_searchbar_input').focus();
                                     }
                                 )}
                             , 1000) //Fadeout
