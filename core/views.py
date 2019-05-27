@@ -43,15 +43,32 @@ def search(request):
 
             # Making sure that users that are not logged in can still search
             if not (user.id):
-                result_annotated = result_query.annotate(user_fav=Value(False, BooleanField())).order_by('idDrink')#.distinct('strDrink')
+                result_annotated = result_query.annotate(user_fav=Value(False, BooleanField())).order_by('idDrink')#.distinct('idDrink')
             else:
                 result_annotated = result_query.annotate(user_fav=Case(
                                 When(customuser=user, then=True),
                                 default=False,
                                 output_field=BooleanField()
-                )).order_by('-user_fav','idDrink')#.distinct('strDrink')
+                )).order_by('-user_fav','idDrink')#.distinct('idDrink')
 
-            result_final = result_annotated
+            # Removing duplicates
+            favorites = result_annotated.filter(user_fav=True)
+            non_favorites = result_annotated.filter(user_fav=False)
+    
+            result_final = []
+
+            #Removing duplicates
+            #TODO: Search on ID instead .id ...
+            for cocktail in non_favorites:
+                if cocktail not in favorites:
+                    result_final.append(cocktail)
+            for cocktail in favorites:
+                result_final.append(cocktail)
+
+            result_final.sort(key=attrgetter('user_fav'), reverse=True)
+
+            #To be re-used in case that there is another way to make sure that there is no duplicates
+            #result_final = result_annotated
 
             total_items = len(result_final)
             items = request.GET.get('all_items', 12) 
@@ -87,8 +104,6 @@ def search(request):
             #Empty query
             highlighted_cocktails = list(Cocktail.objects.filter(idDrink__in=(11003,11001,12127,17206,11007,11005,11004,11009)))
             error_msg = "Type in a keyword to find cocktails"
-            # search_location = "demo"
-            # print(highlighted_cocktails)
 
             if query is '':
                 search_location = 'empty_query'
@@ -137,3 +152,23 @@ def update_favorites(request):
     
     else:
         return HttpResponse('ERROR: GET request not supported')
+
+def clear_favorites(request):
+    if request.method == 'POST':
+
+        user = request.user
+
+        fav_cocktails = list(Cocktail.objects.filter(customuser=user))
+        print(fav_cocktails)
+
+        #TODO: Make a call to update favorites through function
+        for drink in fav_cocktails:
+            if not (user.fav_cocktails.filter(idDrink=drink.idDrink)):
+                print(str(drink) + ' not a favorite')
+            else:
+                user.fav_cocktails.remove(drink)
+                print(str(drink) + ' removed')
+
+        messages.success(request, 'Your favorites have been cleared')
+            
+    return render(request, 'users/profile.html')

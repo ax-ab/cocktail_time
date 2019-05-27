@@ -64,38 +64,33 @@
                                         <input autocomplete="off" class="form-control mr-sm-2" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">
                                     {% endif %}
                                 </div>
+                                <!-- Favorites icon -->
+                                {% if user.is_authenticated %}
+                                    <div class="ml-sm-2 mr-sm-2" id="nav_favorites">
+                                        {% if search_location == 'favorites' %}
+                                        <a class="fas fa-heart" href="/search/?q={{ request.GET.q }}"></a>
+                                        {% else %}
+                                        <a class="far fa-heart" href="/search/?q={{ request.GET.q }}&show_favorites"></a>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
                             </div>
                         </form>
                     </li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-link ml-sm-2 mr-sm-2" id="show_favorites">
-                        {% if search_location == 'favorites' %}
-                        <a id="show_favorites_btn" class="btn favorites_clicked" href="/search/?q={{ request.GET.q }}">Favorites</a>
-                        {% else %}
-                        <a id="show_favorites_btn" class="btn favorites_unclicked" href="/search/?q={{ request.GET.q }}&show_favorites">Favorites</a>
-                        {% endif %}
-                    </li>
-                    {% endif %}
-                    <!-- <li class="nav-item"><a class="nav-link" href="/#about">About</a></li> -->
-                    
                 </ul>
 
                 {% if user.is_authenticated %}
-                
                 <ul class="navbar-nav ml-auto mt-0">
                     <li id="nav_about" class="nav-item"><a class="nav-link" href="/#about">About</a></li>
                     <li id="nav_profile" class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
                     <li id="nav_logout" class="nav-item"><a class="nav-link" href="/logout">Log out</a></li>
                 </ul>
-
                 {% else %}
-
-                <ul class="navbar-nav ml-auto mt-2">
+                <ul class="navbar-nav ml-auto mt-0">
                     <li id="nav_about" class="nav-item"><a class="nav-link" href="/#about">About</a></li>
                     <li id="nav_register" class="nav-item"><a class="nav-link" href="/register">Register</a></li>
                     <li id="nav_login" class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
                 </ul>
-
                 {% endif %}
 
             </div>

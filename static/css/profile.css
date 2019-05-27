@@ -2,3 +2,14 @@
 .navbar #nav_profile a {
   color: #f39c12 !important;
 }
+
+.submit-button-35, .submit-button-0 {
+  background-color: #f39c12 !important;
+  border: 0px solid #f39c12 !important;
+  color: black;
+  /* width: 80%; */
+  }
+
+  .submit-button-35:hover, .submit-button-0:hover {
+    color: black !important;
+    }

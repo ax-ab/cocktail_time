@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm, PasswordResetForm, SetPasswordForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm, PasswordResetForm, SetPasswordForm, PasswordChangeForm
 from .models import CustomUser
 
 from crispy_forms.helper import FormHelper
@@ -83,6 +83,26 @@ class CustomSetPasswordForm(SetPasswordForm):
             Field('new_password2',placeholder='Repeat new password'),
             ButtonHolder(
                 Submit('','Reset password', css_class='submit-button-35')
+            )
+        )
+        # Below is to disable the labels for each field
+        self.helper.form_show_labels = False
+
+# Only used to modify the form template and no view is implemented as this form is parsed in directly via urls.py
+class CustomPasswordChangeForm(PasswordChangeForm):
+    def __init__(self, *args, **kwargs):
+        super(CustomPasswordChangeForm, self).__init__(*args, **kwargs)
+
+        self.helper = FormHelper()
+        # Below is to use the bootstrap validation fields instead
+        self.helper.attrs = {'novalidate': ''}
+
+        self.helper.layout = Layout(
+            Field('old_password',placeholder='Old Password'),
+            Field('new_password1',placeholder='New password'),
+            Field('new_password2',placeholder='Repeat New password'),
+            ButtonHolder(
+                Submit('','Update password', css_class='submit-button-35')
             )
         )
         # Below is to disable the labels for each field

@@ -22,7 +22,7 @@ $(window).on('load', function() {
                                 function(){ $('#cocktailSection').fadeOut("slow", 
                                     function() {
                                         $('#demo_search_hint').fadeIn("slow");
-                                        $('#secondary_mobile_searchbar_input').focus();
+                                        $('#page_search_input').focus();
                                     }
                                 )}
                             , 1000) //Fadeout

@@ -1,5 +1,5 @@
 /* Overriding navbar and the mobile searchbar (hidden) coloring to indicate user current location */
-.navbar #nav_search input, #secondary_mobile_searchbar input {
+.navbar #nav_search_input, #page_search_input {
   border: 2px solid #f39c12 !important;
   border-color: #f39c12 !important;
 }
@@ -262,7 +262,7 @@ clear: both;
 }
 
 /* Responsive columns */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1112px) {
   .column {
     width: 33%;
     display: block;
@@ -286,23 +286,24 @@ clear: both;
       display: block;
       margin-left: 15px;
   }
-  #nav_search {
+  #nav_search, #nav_favorites {
     display: none;
   }
-  #secondary_mobile_searchbar {
+  #page_search, #page_favorites a {
     display: block !important;
   }
-  #show_favorites_btn {
-    display: none;
+  
+  #page_favorites a {
+    padding: 5px;
   }
-  #show_favorites_btn_mobile {
-    display: block !important;
+
+  #page_favorites .far {
+    color: #f39c12 !important;
   }
-  .favorites_unclicked {
-    border: 2px solid black !important;
-  }
-  .favorites_clicked {
-    border: 0px solid black !important;
+
+  #page_favorites {
+    margin-left: 5px; 
+    height: 38px;
   }
 
 }
@@ -313,25 +314,26 @@ clear: both;
       display: block;
       margin-bottom: 10px;
   }
-  #nav_search {
+  #nav_search, #nav_favorites {
     display: none;
   }
-  #secondary_mobile_searchbar {
+  #page_search, #page_favorites a {
     display: block !important;
   }
-  #show_favorites_btn {
-    display: none;
+  
+  #page_favorites a {
+    padding: 5px;
   }
-  #show_favorites_btn_mobile {
-    display: block !important;
-    border: 2px solid black;
+
+  #page_favorites .far {
+    color: #f39c12 !important;
   }
-  .favorites_unclicked {
-    border: 2px solid black !important;
+
+  #page_favorites {
+    margin-left: 5px; 
+    height: 38px;
   }
-  .favorites_clicked {
-    border: 0px solid black !important;
-  }
+ 
 
   /* In order to center the error message on mobile */
   #error_message {

@@ -7,5 +7,12 @@
     Profile
 {% endblock %}
 {% block main %}
-    {{ user.email }}
+    
+    <div style="text-align: center;">
+    <h4><div class="badge badge-light">Logged in as <br> {{ user.email}}</div></h4>
+    <div style="margin-top: 30vh;"><a style="border-radius: 10px;" class="btn btn-primary submit-button-0" href="{% url 'password_change' %}">Change password</a></div>
+    <form style="margin-top: 10px;" action="../clear_favorites" method="POST">
+        {% csrf_token %}
+        <input class="btn btn-primary submit-button-0" type="submit" value="Clear all favorites">
+    </form>
 {% endblock %}
