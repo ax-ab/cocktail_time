@@ -9,10 +9,10 @@
 {% block main %}
     
     <div style="text-align: center;">
-    <h4><div class="badge badge-light">Logged in as <br> {{ user.email}}</div></h4>
-    <div style="margin-top: 30vh;"><a style="border-radius: 10px;" class="btn btn-primary submit-button-0" href="{% url 'password_change' %}">Change password</a></div>
+    <h5><div style="padding: 12px;" class="badge badge-light">Logged in as <br> {{ user.email }}</div></h5>
+    <div style="margin-top: 20px;"><a style="border-radius: 10px;" class="btn btn-primary submit-button-0" href="{% url 'password_change' %}">Change password</a></div>
     <form style="margin-top: 10px;" action="../clear_favorites" method="POST">
         {% csrf_token %}
-        <input class="btn btn-primary submit-button-0" type="submit" value="Clear all favorites">
+        <input class="btn btn-primary submit-button-0" type="submit" value="Clear favorites">
     </form>
 {% endblock %}

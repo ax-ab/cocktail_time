@@ -459,13 +459,14 @@
     </div>
 
 {% else %}
-    <!-- Only error message -->
-    <div id="cocktailSection" class="row">
+    <!-- Only error message. 'Name' is needed in order to trigger the click for focus on search bar -->
+    <div id="cocktailSection" name="error_message" class="row">
         <div id="bartender_search" class="">
             <img src="{% static "images/bartender_search.png" %}">
         </div>
         <h4><span class="badge badge-light">{{ error_msg|linebreaksbr }}</span></h4>
     </div>
+
 {% endif %}
 
 {% if result.has_next and request.GET.q  %}

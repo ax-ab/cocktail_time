@@ -10,6 +10,26 @@
   /* width: 80%; */
   }
 
+  .submit-button-0 {
+    margin-left: 0%;
+    }
+    
+  .submit-button-35 {
+  margin-left: 35%;
+  }
+
   .submit-button-35:hover, .submit-button-0:hover {
     color: black !important;
+    }
+  
+    @media screen and (max-width: 600px) {
+      .submit-button-35 {
+        margin-left: 25% !important;
+      }
+  
+      @media screen and (max-width: 600px) {
+          #password-container {
+            margin-top: -10vh !important;
+          }
+        }
     }

@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
+from core.models import Cocktail
 
 # from .decorators import student_required
 
@@ -34,4 +35,12 @@ def register(request):
 @login_required
 #@student_required
 def profile(request):
-    return render(request, 'users/profile.html')
+    
+    user = request.user
+    fav_cocktails = Cocktail.objects.filter(customuser=user)
+    
+    context = {
+        'number_of_cocktails':len(fav_cocktails)
+    }
+    
+    return render(request, 'users/profile.html', context)

@@ -22,7 +22,10 @@ $(window).on('load', function() {
                                 function(){ $('#cocktailSection').fadeOut("slow", 
                                     function() {
                                         $('#demo_search_hint').fadeIn("slow");
-                                        $('#page_search_input').focus();
+                                        //Clicking on the search hint gives focus to the searchbar
+                                        $('#demo_search_hint').on('click', function() {
+                                            $('#page_search_input').focus();
+                                        });
                                     }
                                 )}
                             , 1000) //Fadeout
@@ -30,8 +33,16 @@ $(window).on('load', function() {
                     , 1000) //Reverse flip
                 )}
             , 1000); //Initial flip
-
+            
         }
+        
+        //Clicking on the search hint gives focus to the searchbar
+        $("[name='error_message']").on('click', function() {
+            $("#page_search_input").focus();
+            // $('#nav_search_input').focus();
+            console.log('clicked');
+        });
+        
         // Scrolling to where we were last
         // console.log($("#all_items").attr("value"));
         if ($("#all_items").attr("value") == 'true') {

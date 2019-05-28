@@ -169,6 +169,9 @@ def clear_favorites(request):
                 user.fav_cocktails.remove(drink)
                 print(str(drink) + ' removed')
 
-        messages.success(request, 'Your favorites have been cleared')
+        if not fav_cocktails:
+            messages.success(request, 'No cocktails added to favorites')
+        else:
+            messages.success(request, 'Your favorites have been cleared')
             
     return render(request, 'users/profile.html')

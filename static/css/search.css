@@ -1,5 +1,5 @@
 /* Overriding navbar and the mobile searchbar (hidden) coloring to indicate user current location */
-.navbar #nav_search_input, #page_search_input {
+.navbar #nav_search input, #page_search input {
   border: 2px solid #f39c12 !important;
   border-color: #f39c12 !important;
 }

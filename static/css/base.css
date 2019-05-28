@@ -159,3 +159,8 @@ background: #4b4b4b;
   }
   
 }
+
+/* Makes sure that there is only a pointer with error messages and the backside of the cards */
+#demo_search_hint, #bartender_search, [name="error_message"], .backside {
+  cursor: default;
+}
