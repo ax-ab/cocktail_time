@@ -61,13 +61,15 @@ color: white;
   /* Overlay and text */
   #about_text {
     margin-top: calc(-10%);
+      /* iOS needs flex below */
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: calc(20% + 0px);
   }
   #about_text div {
-    margin-top: calc(-275px) !important; 
+    /* Needs to be -275 for ios */
+    margin-top: -275px !important;
     margin-left: calc(-100% + 30px) !important;
     padding: 30px; 
     width: 150% !important;
@@ -77,14 +79,15 @@ color: white;
     
   #mojito {
     margin-left: 15% !important;
-
+    height: auto !important;
   }
   #fashioned {
     margin-left: 10% !important;
-    
+    height: auto !important;
   }
   #gt {
     margin-left: 15% !important;
+    height: auto !important;
   }
   
 }

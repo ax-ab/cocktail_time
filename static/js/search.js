@@ -1,7 +1,11 @@
 // Page preloader. 1800 is exactly the time it takes for the full animation to complete
-var isSearchLandingPage = (window.location.pathname == '/search/' && window.location.search == '')
-$(window).on('load', function() {
+var isSearchLandingPage = (window.location.pathname == '/search/' && window.location.search == '');
+// Below works but not to be used in current implementation
+// var iOSSafari = /iP(ad|od|hone)/i.test(window.navigator.userAgent) && /WebKit/i.test(window.navigator.userAgent) && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent));
 
+$(window).on('load', function() {
+    
+    
     $("#loader").delay(1000).fadeOut("fast", function() {
 
         $("#cocktailSection, #search_results, #loadremaining_wrapper").fadeIn("slow");
@@ -24,7 +28,15 @@ $(window).on('load', function() {
                                         $('#demo_search_hint').fadeIn("slow");
                                         //Clicking on the search hint gives focus to the searchbar
                                         $('#demo_search_hint').on('click', function() {
-                                            $('#page_search_input').focus();
+                                            
+                                            if (window.screen.availWidth >= 769) {
+                                                $('#nav_search_input').focus();
+                                                console.log('LARGER NAV');
+                                            } else {
+                                                $('#page_search_input').focus();
+                                                console.log('SMALLER NAV');
+                                            }
+                                             
                                         });
                                     }
                                 )}
@@ -38,9 +50,13 @@ $(window).on('load', function() {
         
         //Clicking on the search hint gives focus to the searchbar
         $("[name='error_message']").on('click', function() {
-            $("#page_search_input").focus();
-            // $('#nav_search_input').focus();
-            console.log('clicked');
+            if (window.screen.availWidth >= 769) {
+                $('#nav_search_input').focus();
+                console.log('LARGER NAV');
+            } else {
+                $('#page_search_input').focus();
+                console.log('SMALLER NAV');
+            }
         });
         
         // Scrolling to where we were last

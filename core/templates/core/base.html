@@ -57,11 +57,11 @@
                             <div class="form-group row text-left justify-content-left">
                                 <div class="form-group has-search">
                                     <span class="fa fa-search form-control-feedback"></span>
-                                    <!-- Enables autofocus for the relevant scenarios -->
+                                    <!-- Enables autofocus for the relevant scenarios. id is needed for js to toggle when clicking -->
                                     {% if search_location == 'empty_query' or search_location == 'demo' %}
-                                        <input autofocus autocomplete="off" class="form-control mr-sm-2" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">                                        
+                                        <input id="nav_search_input" autofocus autocomplete="off" class="form-control mr-sm-2" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">                                        
                                     {% else %}
-                                        <input autocomplete="off" class="form-control mr-sm-2" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">
+                                        <input id="nav_search_input" autocomplete="off" class="form-control mr-sm-2" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">
                                     {% endif %}
                                 </div>
                                 <!-- Favorites icon -->
