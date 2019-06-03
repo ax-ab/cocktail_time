@@ -314,13 +314,36 @@ color: #f39c12 !important;
   }
 
   #about_text div {  
-    margin-top: -55% !important;
+    margin-top: -45%;
   }
 
   #mojito {
     margin-left: 38% !important;
   }
 
+  #jumbotron_contents > .center-con, #jumbotron_contents > .center-con > a {
+    margin-top: -2vh !important;
+  }
+
+  #about > .center-con, #about > .center-con > a {
+    margin-top: -10vh !important;
+  }
+
+  body {
+    font-size: 0.90em;
+  }
+
+  #about_text img {
+    width: 25% !important;
+  }
+
+}
+
+/* SG S5 */
+@media screen and (max-width: 360px) {
+
+  #about > .center-con, #about > .center-con > a {
+    margin-top: -5vh !important;
 }
 
 /*-- iPhone SE --*/
@@ -336,6 +359,18 @@ color: #f39c12 !important;
 
   #about_text img {
     width: 30% !important;
+  }
+
+  #about_text div {  
+    margin-top: -55% !important;
+  }
+
+  #about > .center-con, #about > .center-con > a {
+    margin-top: -6vh !important;
+  }
+
+  #about_search > .center-con, #about_search > .center-con > a {
+    margin-top: 3vh !important;
   }
 
 }
