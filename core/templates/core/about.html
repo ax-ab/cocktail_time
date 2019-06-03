@@ -8,18 +8,17 @@
     About
 {% endblock %}
 
-{% block header %}
+{% block main %}
 <!-- https://www.htmlgoodies.com/tutorials/web_graphics/article.php/3480001/So-You-Want-To-Pre-Load-Huh.htm -->
 <link rel="preload" as="image" href="{% static "images/bartender.png" %}">
 <link rel="preload" as="image" href="{% static "icons/down-arrow.svg" %}">
 
- <!--JUMBOTRON-->
- <div id="jumbotron" class="jumbotron jumbotron-fluid" style="text-align: center; position: relative; height: 100vh">
+ <div id="jumbotron" class="fs_block">
         
     <!-- Below is to push the content down a bit -->
     <div style="padding-top: 5vh">
         <div>
-            <h1>What are we drinking tonight?</h1>
+            <h1 style="color: inherit">What are we drinking tonight?</h1>
             <p style="font-style: italic">your personal cocktail experience</p>
         </div>
         <br>
@@ -41,37 +40,37 @@
     </div>
     
 </div>
-{% endblock %}
 
-{% block main %}
-<div id="about" style="height: 100vh; background-color: transparent">
-    <h1 style="text-align: center; padding-top: 5vh; color: #4b4b4b">About</h1>
+<div id="filler" class="fs_block_filler"></div>
+
+<div id="about" class="fs_block">
+    <h1>About</h1>
     
-    <div id="about_text" class="slideanim" style="margin-top: 15vh; margin-bottom: 15vh;" >
+    <div id="about_text" class="slideanim">
         <img id="fashioned" src="{% static "images/fashioned.png" %}">
         <img id="mojito" src="{% static "images/mojito.png" %}">
         <img id="gt" src="{% static "images/gt.png" %}">
                 
-    <div>
-        <p style="font-size: larger">
-       
-        <br>
-        On this site you can search and explore cocktail recipes. To see the recipe click on the cocktail card. If you sign up for an account you can add each cocktail to your favorites.
-        <br>
-        <br>
-        The site is under development with
-        interesting new features ...
-        <br>
-        <br>
-        If you have ideas for improvement send a mail to abc@abc.com
-        <br>
-     
-        </p>
-    </div>
+        <div>
+            <p style="font-size: larger">
+        
+            <br>
+            On this site you can search and explore cocktail recipes. To see the recipe click on the cocktail card. If you sign up for an account you can add each cocktail to your favorites.
+            <br>
+            <br>
+            The site is under development with
+            interesting new features ...
+            <br>
+            <br>
+            If you have ideas for improvement send a mail to abc@abc.com
+            <br>
+        
+            </p>
+        </div>
     
     </div>
 
-    <div class="center-con" style="padding-top: 15vh;">
+    <div class="center-con">
         <a href="#about_search"> 
             <div class="round">
                 <div id="cta">
@@ -84,22 +83,39 @@
 
 </div>
 
-<div id="about_search" style="height: 100vh; background-color: transparent; text-align: center; position: relative">
-    <a href="/search">
-        <div class="fa fa-search" style="color: #f39d1288; line-height: 100px; position: relative; font-size: 50px; margin-top: 40vh">
-            <h5 style="font-weight:bold; color: #4b4b4b">Search for 500+ cocktails</h5>
-        </div>
-    </a>
+<div id="filler" class="fs_block_filler"></div>
+
+<div id="about_search" class="fs_block">
+    <h1>Search</h1>
+    
+    <div id="about_search_text" class="slideanim">
+        <a href="{% url 'search' %}">
+            <div class="fa fa-search" style="color: #f39d1288; line-height: 100px; position: relative; font-size: 50px; margin-top: 20vh"></div>
+            <h4 style="color: #4b4b4b">A cocktail database with <br> more than 500 cocktails</h4>
+        </a>
+    </div>
+
+    <div class="center-con">
+        <a href="{% url 'search' %}"> 
+            <div class="round right">
+                <div id="cta">
+                    <span class="arrow primary next "></span>
+                    <span class="arrow secondary next "></span>
+                </div>
+            </div> 
+        </a> 
+    </div>
+
 </div>
 
 {% endblock %}
 
 {% block footer %}
-<div style="height: 50vh; background-color: transparent; position: relative; padding-top: 15vh;">
+<div id="footer">
 
-        <div id="cocktail" class="">
-            <img src="{% static "images/fashioned.png" %}">
-        </div>
+    <div id="cocktail">
+        <img src="{% static "images/fashioned.png" %}">
+    </div>
 
     <br>
     <p>Powered by thecocktaildb.com</p>

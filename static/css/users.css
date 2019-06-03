@@ -1,0 +1,86 @@
+ /* Workaround as the hint text needs to be left aligned wheras the submit-button */
+.buttonHolder {
+text-align: center !important;
+}
+   
+.submit-button {
+background-color: #f39c12 !important;
+border: 0px solid #f39c12 !important;
+color: black;
+/* width: 100%; */
+margin-top: 2vh;
+}
+
+.submit-button:hover {
+color: black !important;
+}
+
+header {
+/* center contents */
+text-align: center !important;
+}
+
+header h2 {
+color: white; 
+margin-top: 10vh;
+margin-bottom: 10vh;
+}
+
+/* For the logout and password mail message */
+.badge-warning {
+background-color: #f39c12 !important;
+}
+
+#bartender_search img {
+width: 150px;
+height: 100%;
+display: inline-block;
+}
+
+/* Used for the bartender icon */
+.fadein {
+animation-name: fadein;
+-webkit-animation-name: fadein;
+animation-duration: 2s;
+-webkit-animation-duration: 2s;
+visibility: visible;
+}
+
+@keyframes fadein {
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+
+@-webkit-keyframes fadein {
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+
+  /*-- iPhone SE text size correction for register description text and error text --*/
+  @media screen and (max-width: 350px) {
+    .form-text {
+      font-size: calc(1rem * 0.5);
+    }
+    #bartender_search h4 {
+      font-size: calc(1rem * 1.10);
+    }
+  }
+  
+    /*-- iPhone 8 error text size and alignment --*/
+  @media screen and (max-width: 400px) {
+    #bartender_search h4 {
+      font-size: calc(1rem * 1.30);
+    }
+  }
+  
+
+  
+  

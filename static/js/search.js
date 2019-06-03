@@ -5,13 +5,13 @@ var isSearchLandingPage = (window.location.pathname == '/search/' && window.loca
 
 $(window).on('load', function() {
     
-    
     $("#loader").delay(1000).fadeOut("fast", function() {
 
-        $("#cocktailSection, #search_results, #loadremaining_wrapper").fadeIn("slow");
+        $("#cocktailSection, #search_results, #loadremaining, #search_hint").fadeIn("slow");
         
-        console.log(isSearchLandingPage);
-        //For '/search/' GET request as a demo of flipped card
+        //console.log(isSearchLandingPage);
+
+        //For '/search/' GET request as a demo of flipped card with autofocus (1/2) afterwards
         if (isSearchLandingPage) {
             //Demo flip animation. Timeout is required as js doesnt know when the animation has ended
             function flip() {
@@ -31,10 +31,10 @@ $(window).on('load', function() {
                                             
                                             if (window.screen.availWidth >= 769) {
                                                 $('#nav_search_input').focus();
-                                                console.log('LARGER NAV');
+                                                // console.log('LARGER NAV');
                                             } else {
                                                 $('#page_search_input').focus();
-                                                console.log('SMALLER NAV');
+                                                // console.log('SMALLER NAV');
                                             }
                                              
                                         });
@@ -48,18 +48,18 @@ $(window).on('load', function() {
             
         }
         
-        //Clicking on the search hint gives focus to the searchbar
+        //Autofocus (2/2): Clicking on the search hint gives focus to the searchbar
         $("[name='error_message']").on('click', function() {
             if (window.screen.availWidth >= 769) {
                 $('#nav_search_input').focus();
-                console.log('LARGER NAV');
+                // console.log('LARGER NAV');
             } else {
                 $('#page_search_input').focus();
-                console.log('SMALLER NAV');
+                // console.log('SMALLER NAV');
             }
         });
         
-        // Scrolling to where we were last
+        // Scrolling to where we were last when loading all items by looking at html meta data
         // console.log($("#all_items").attr("value"));
         if ($("#all_items").attr("value") == 'true') {
             window.scrollTo(0, 1028);
@@ -85,8 +85,9 @@ $(window).on('load', function() {
 // Ready is needed because the js reference is placed at the top of the page (head)
 $(document).ready(function() {
 
+    //Enables ALL interactivity for the search page (ajax etc.)
     //Disables interactivity for the demosession
-    console.log(isSearchLandingPage)
+    // console.log(isSearchLandingPage)
     if (!isSearchLandingPage) {
 
         // TOGGLE FLIP CARDS
@@ -112,9 +113,9 @@ $(document).ready(function() {
             var drink_id;
             drink_id = $(this).attr('id');
 
-            console.log("id: " + drink_id);
-            console.log("class: " + $(this).attr('class'));
-            console.log("name: " + $(this).attr('name'));
+            // console.log("id: " + drink_id);
+            // console.log("class: " + $(this).attr('class'));
+            // console.log("name: " + $(this).attr('name'));
 
             if (this.className === empty) {
                 ajax_update_fav(drink_id, 'add');
@@ -132,6 +133,40 @@ $(document).ready(function() {
             event.stopImmediatePropagation();
         });
 
+        function toggle_favloader(callback_type, drink_id, update_type) {
+                
+            if (callback_type == 'success') {
+
+                if (update_type == 'add') {
+                    setTimeout(function() {$('#' + drink_id + '_favorite_loader').fadeOut('slow')}, 300);
+                    setTimeout(function() {$('#' + drink_id).removeClass().addClass('fas fa-heart card-badge').fadeIn('slow')}, 800);
+                } else if (update_type == 'remove') {
+                    setTimeout(function() {$('#' + drink_id + '_favorite_loader').fadeOut('slow')}, 300);
+                    setTimeout(function() {$('#' + drink_id).removeClass().addClass('far fa-heart card-badge').fadeIn('slow')}, 800);
+                }
+
+            } else if (callback_type == 'error') {
+
+                //restoring the original class
+                if (update_type == 'add') {
+                    setTimeout(function() {$('#' + drink_id + '_favorite_loader').fadeOut('slow')}, 300);
+                    setTimeout(function() {$('#' + drink_id).removeClass().addClass('far fa-heart card-badge').fadeIn('slow')}, 800);
+                } else if (update_type == 'remove') {
+                    setTimeout(function() {$('#' + drink_id + '_favorite_loader').fadeOut('slow')}, 300);
+                    setTimeout(function() {$('#' + drink_id).removeClass().addClass('fas fa-heart card-badge').fadeIn('slow')}, 800);
+                }
+                
+                setTimeout(function() {alert('Connection issue. Please try again later')}, 1000);
+
+            } else {
+                //Clearing the badge icon and loading the animation
+                $('#' + drink_id).removeClass().addClass('card-badge');
+                $('#' + drink_id + '_favorite_loader').show();
+                $('#' + drink_id + '_favorite_loader').fadeIn('slow');   
+            }
+ 
+        }
+
         //CSRF function and setup for ajax post request.
         function csrfSafeMethod(method) {
             // these HTTP methods do not require CSRF protection
@@ -146,49 +181,6 @@ $(document).ready(function() {
         });
 
         var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
-
-        function toggle_favloader(callback_type, drink_id, update_type) {
-                
-            if (callback_type == 'success') {
-
-                if (update_type == 'add') {
-
-                    setTimeout(function() {$('#' + drink_id + '_favorite_loader').fadeOut('slow')}, 300);
-                    setTimeout(function() {$('#' + drink_id).removeClass().addClass('fas fa-heart card-badge').fadeIn('slow')}, 800);
-
-                } else if (update_type == 'remove') {
-
-                    setTimeout(function() {$('#' + drink_id + '_favorite_loader').fadeOut('slow')}, 300);
-                    setTimeout(function() {$('#' + drink_id).removeClass().addClass('far fa-heart card-badge').fadeIn('slow')}, 800);
-
-                }
-
-            } else if (callback_type == 'error') {
-
-                //restoring the original class
-                if (update_type == 'add') {
-
-                    setTimeout(function() {$('#' + drink_id + '_favorite_loader').fadeOut('slow')}, 300);
-                    setTimeout(function() {$('#' + drink_id).removeClass().addClass('far fa-heart card-badge').fadeIn('slow')}, 800);
-
-                } else if (update_type == 'remove') {
-
-                    setTimeout(function() {$('#' + drink_id + '_favorite_loader').fadeOut('slow')}, 300);
-                    setTimeout(function() {$('#' + drink_id).removeClass().addClass('fas fa-heart card-badge').fadeIn('slow')}, 800);
-
-                }
-                
-                setTimeout(function() {alert('Connection issue. Please try again later')}, 1000);
-
-            } else {
-                //Clearing the badge icon and loading the anitmation
-                $('#' + drink_id).removeClass().addClass('card-badge');
-                $('#' + drink_id + '_favorite_loader').show();
-                $('#' + drink_id + '_favorite_loader').fadeIn('slow');
-                
-            }
- 
-        }
 
         function ajax_update_fav(drink_id, update_type) 
         {

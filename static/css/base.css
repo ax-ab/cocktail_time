@@ -1,26 +1,28 @@
-/* Overriding top navbar colors */
-.bg-dark {
+/*-- Navigation bar --*/
+@media screen and (max-width: 9999px) {
+  /* Overriding top navbar colors */
+  .bg-dark {
     background-color: #1c1e1f !important
     /* background-color:#d1d8e0 !important */
-    }
+  }
   
-  .navbar-brand
-  {
+  .navbar-brand {
     padding: 0 15px;
     height: auto;
     line-height: auto;
   }
   
-  .navbar-brand > img
-  {
+  .navbar-brand > img {
     height: 50px; /*Adjust this make the icon bigger or smaller*/
     padding: 5px; /* padding: 15px; firefox bug fix */
     width: auto;
     filter: invert(76%) sepia(47%) saturate(4166%) hue-rotate(355deg) brightness(99%) contrast(92%);
     -webkit-filter: invert(76%) sepia(47%) saturate(4166%) hue-rotate(355deg) brightness(99%) contrast(92%);
   }
+}
   
-  /* Search field */
+/*-- Search field and favorites --*/
+@media screen and (max-width: 9999px) {
   .has-search .form-control {
     padding-left: 2.375rem;
   }
@@ -62,105 +64,126 @@
   
   }
   
-  
   /* Disabled as the expand effect was a bad UX */
   /* input[type=search]:focus {
     width: 100% !important;
     border: 2px solid #f39c12 !important;
   } */
 
-input {
-border-radius: 10px 10px 10px 10px !important;
+  input {
+  border-radius: 10px 10px 10px 10px !important;
+  }
+
+  input:focus, textarea:focus {
+  outline: none !important;
+  border: 0px solid #f39c12 !important;
+  box-shadow: 0 0 0px #f39c12 !important;
+  }
+
+  input,
+  textarea,
+  [contenteditable] {
+    caret-color: gray;
+    /* #f39c12; */
+  }
+
+  #nav_favorites, #page_favorites {
+    padding: 0px !important;
+    font-size: 25px;
+    /* display: none; */
+  }
+
+  #nav_favorites {
+    margin-left: 10px !important;
+  }
+
+  /*makes sure that hyperlinks are not formatted*/
+  #nav_favorites a, #page_favorites a, #nav_favorites a:hover, #page_favorites a:hover {
+    /* color: gray; */
+    /* visited, active link */
+    color: #4b4b4b;
+    text-decoration: none;
+    cursor: default;
+  }
+
+  .fas {
+    color: #f39c12 !important;
+  }
 }
 
-input:focus, textarea:focus {
-outline: none !important;
-border: 0px solid #f39c12 !important;
-box-shadow: 0 0 0px #f39c12 !important;
+/*-- Misc (cursor, alert) --*/
+@media screen and (max-width: 9999px) {
+/* Makes sure that there is only a pointer with error messages and the backside of the cards */
+#demo_search_hint, #bartender_search, [name="error_message"], .backside {
+cursor: default;
 }
 
-input,
-textarea,
-[contenteditable] {
-  caret-color: gray;
-   /* #f39c12; */
+.alert-custom {
+  border: solid 2px #1c1e1f !important;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
 }
 
-#nav_favorites, #page_favorites {
-  padding: 0px !important;
-  font-size: 25px;
-  /* display: none; */
-}
-
-#nav_favorites {
-  margin-left: 10px !important;
-}
-
-/*makes sure that hyperlinks are not formatted*/
-#nav_favorites a, #page_favorites a, #nav_favorites a:hover, #page_favorites a:hover {
-  /* color: gray; */
-  /* visited, active link */
-  color: #4b4b4b;
-  text-decoration: none;
-  cursor: default;
-}
-
-.fas {
-  color: #f39c12 !important;
-}
-
-.container {
-padding: 50px;
-}
-
-* {
-box-sizing: border-box;
-}
+/*-- General layouting --*/
+@media screen and (max-width: 9999px) {
+  /* Below header properties are for good measure only but is mainly for users templates which has moved to a seperate css file */
+  header {
+  /* center contents */
+  text-align: center !important;
+  }
     
-body {
-font-family: Arial, Helvetica, sans-serif;
-/* background: #636e72; */
-/* background: #272B30; CS50 used background  */
-background: #4b4b4b;
-/* background-image: url(''); */
+  main
+  {
+  /* scroll horizontally as needed */
+  overflow-x: auto;
+  overflow: hidden;
+
+  /* center contents */
+  text-align: center !important;
+
+  /* Ensuring margin and padding for all pages. Only About is set to custom in about.css*/
+  margin-top: calc(1rem * 2) !important;
+  /* Padding bottom is important instead of margin-bottom because otherwise there is a clipping error when flipping the cards */
+  padding-bottom: calc(1rem * 3) !important;
+  padding-left: calc(1rem * 3) !important;
+  padding-right: calc(1rem * 3) !important;
+  }
+    
+  * {
+  /* box-sizing: border-box; */
+  }
 }
 
+/*-- Fonts and colors --*/
+@media screen and (max-width: 9999px) {
+  /* About titles, Jumbotron subheading and search text on about page */
+  h1, h1 + p, a > h4 {
+  font-family: 'Fredericka the Great', cursive;
+  }
+
+  #about {
+  font-family: 'Sumana', serif;
+  }
+
+  body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: 'Chivo', sans-serif; */
+  /* background: #636e72; */
+  /* background: #272B30; CS50 used background  */
+  background: #4b4b4b;
+  }
+}
+
+/*-- Adjusting dropdown menu alignment --*/
 @media screen and (max-width: 768px) {
 
   #nav_search {
-    /* display: none; */
-    margin-bottom: -30px;
-    margin-left: 10px;
-    margin-top: 10px;
-  }
- 
-  #show_favorites_btn {
-    /* display: block !important; */
-    margin-top: 10px;
-    margin-left: -5px;
+    margin-bottom: -30px !important;
+    margin-left: 10px !important;
+    margin-top: 10px !important;
   }
 
-}
 
-@media screen and (max-width: 600px) {
-  
-  #nav_search {
-    /* display: none; */
-    margin-bottom: -30px;
-    margin-left: 10px;
-    margin-top: 10px;
-  }
- 
-  #show_favorites_btn {
-    /* display: block !important;
-    border: 2px solid black; */
-    margin-top: 10px;
-    margin-left: -5px;
-  }
-  
-}
-
-/* Makes sure that there is only a pointer with error messages and the backside of the cards */
-#demo_search_hint, #bartender_search, [name="error_message"], .backside {
-  cursor: default;
 }

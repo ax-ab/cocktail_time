@@ -63,7 +63,7 @@ class CustomPasswordResetForm(PasswordResetForm):
         self.helper.layout = Layout(
             Field('email', placeholder='Email'),
             ButtonHolder(
-                Submit('','Request password reset', css_class='submit-button-0')
+                Submit('','Request password reset', css_class='submit-button')
             )
         )
         # Below is to disable the labels for each field
@@ -82,7 +82,7 @@ class CustomSetPasswordForm(SetPasswordForm):
             Field('new_password1',placeholder='New password'),
             Field('new_password2',placeholder='Repeat new password'),
             ButtonHolder(
-                Submit('','Reset password', css_class='submit-button-35')
+                Submit('','Reset password', css_class='submit-button')
             )
         )
         # Below is to disable the labels for each field
@@ -102,7 +102,7 @@ class CustomPasswordChangeForm(PasswordChangeForm):
             Field('new_password1',placeholder='New password'),
             Field('new_password2',placeholder='Repeat New password'),
             ButtonHolder(
-                Submit('','Update password', css_class='submit-button-35')
+                Submit('','Update password', css_class='submit-button')
             )
         )
         # Below is to disable the labels for each field

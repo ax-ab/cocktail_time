@@ -1,18 +1,19 @@
 {% extends "core/base.html" %}
 {% load static %}
 {% block static %}
-<link href="{% static "css/profile.css" %}" rel="stylesheet">
+<link href="{% static "css/users.css" %}" rel="stylesheet">
+<style> .navbar #nav_profile a {color: #f39c12 !important;} </style>
 {% endblock %}
 {% block title %}
     Profile
 {% endblock %}
 {% block main %}
-    
-    <div style="text-align: center;">
-    <h5><div style="padding: 12px;" class="badge badge-light">Logged in as <br> {{ user.email }}</div></h5>
-    <div style="margin-top: 20px;"><a style="border-radius: 10px;" class="btn btn-primary submit-button-0" href="{% url 'password_change' %}">Change password</a></div>
-    <form style="margin-top: 10px;" action="../clear_favorites" method="POST">
-        {% csrf_token %}
-        <input class="btn btn-primary submit-button-0" type="submit" value="Clear favorites">
-    </form>
+ 
+<div><a style="width: 175px; border-radius: 10px;" class="btn btn-primary submit-button" href="{% url 'password_change' %}">Change password</a></div>
+<form style="margin-top: 10px;" action="{% url 'clear-favorites' %}" method="POST">
+    {% csrf_token %}
+    <input style="width: 175px" class="btn btn-primary submit-button" type="submit" value="Clear favorites">
+</form>
+<div class="mt-5 col-sm-3 mx-auto small text-muted">Logged in as {{ user.email }}</div>
+
 {% endblock %}

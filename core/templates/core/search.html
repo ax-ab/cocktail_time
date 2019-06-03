@@ -17,9 +17,9 @@
 <!-- For ajax post request -->
 {% csrf_token %}
 
-<form id="page_search" action="/search" method="GET" class="" style="display: none; margin-top: 0vh;">
-    <div class="form-group row text-center justify-content-center">
-        <div class="form-group has-search">
+<form id="page_search" action="/search" method="GET" style="display: none;">
+    <div class="form-group row justify-content-center">
+        <div class="form-group has-search" style="width: 60vw;">
             <span class="fa fa-search form-control-feedback"></span>
             <!-- Autofocus is handled through js as it has to happen after the fade to search message -->
             <input id="page_search_input" autocomplete="off" class="form-control" name="q" value="{{ request.GET.q }}" placeholder="Search cocktails" type="search">
@@ -42,10 +42,9 @@
 <!-- Using "object" as this was the way to make sure the animation resetted each time and not using a cached version. previosuly "div" -->
 <object id="loader" type="image/svg+xml" data="{% static "icons/loader.svg" %}"></object>
 
-<!-- mb-5 below is needed for the element below to recognize the space of the badge. special case -->
 {% if result and search_location == 'query' %}
-<div id="search_results" class="mb-5">
-<h4><span class="badge badge-dark" style="position: absolute; top: 0px; right: 0px;">Showing {{ items }} out of {{ total_items }} cocktails</span></h4>
+<div id="search_results">
+    <h4><span class="badge badge-dark">Showing {{ items }} out of {{ total_items }} cocktails</span></h4>
 </div>
 {% endif %}
 
@@ -257,11 +256,11 @@
        
 {% elif search_location == 'demo' %}
     <!-- Demo animation done through js -->
-    <div id="demo_search_hint" style="display: none; text-align: center;">
+    <div id="demo_search_hint" style="display: none;">
         <div id="bartender_search" class="">
             <img src="{% static "images/bartender_search.png" %}">
         </div>
-        <h4><span id="error_message" class="badge badge-light">{{ error_msg|linebreaksbr }}</span></h4>
+        <h4><span class="badge badge-light">{{ error_msg|linebreaksbr }}</span></h4>
     </div>
     
     <div id="cocktailSection" class="row">
@@ -460,18 +459,17 @@
 
 {% else %}
     <!-- Only error message. 'Name' is needed in order to trigger the click for focus on search bar -->
-    <div id="cocktailSection" name="error_message" class="row">
+    <div id="search_hint" name="error_message" style="display: none;">
         <div id="bartender_search" class="">
             <img src="{% static "images/bartender_search.png" %}">
         </div>
         <h4><span class="badge badge-light">{{ error_msg|linebreaksbr }}</span></h4>
     </div>
-
 {% endif %}
 
 {% if result.has_next and request.GET.q  %}
-    <div id="loadremaining_wrapper" class="row">
-        <a style="font-size: 20px;" id="loadremaining" class="btn btn-primary" href="/search/?q={{ request.GET.q }}&all_items=True';">Load <span class="badge badge-light">{{ remaining_items }}</span> more cocktails</a>
+    <div id="loadremaining" style="display: none">
+        <a style="font-size: 20px;" class="btn btn-primary mybtn" href="/search/?q={{ request.GET.q }}&all_items=True';">Load <span class="badge badge-light">{{ remaining_items }}</span> more cocktails</a>
     </div>
 {% endif %}
 

@@ -13,8 +13,7 @@ $(document).ready(function() {
         });
     });
 
-
-
+    // Smooth scroll hashes
     $("a").on('click', function(event) {
 
         // Make sure this.hash has a value before overriding default behavior

@@ -1,156 +1,128 @@
 /* Overriding navbar coloring to indicate user current location */
 .navbar #nav_about a {
-  color: #f39c12 !important;
+color: #f39c12 !important;
 }
 
-body {
+/*-- General layout --*/
+@media screen and (max-width: 9999px) {
+  main {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  }
+
+  body {
   background: linear-gradient(180deg, white 15%, #4b4b4b 100%);
+  }
+
+  h1 {
+  padding-top: 5vh; 
+  color: #4b4b4b;
+  }
+
+  .fs_block {
+  height: 100vh;
+  /* background-color: transparent; */
+  /* text-align: center; position: relative; height: 100vh;  */
+  }
+
+  .fs_block_filler {
+  height: 50vh;
+  }
 }
 
-#jumbotron {
-  background-color: transparent;
-}
-
-/* Height of about description section */
-#about {
-  height: 60vh;
-}
-
-#about_text {
-margin-top: calc(3%); 
-/* display: block; */
-text-align: center; 
-justify-content: center; 
-position: relative;
-}
-
-#about_text img {
-width: 125px;
-height: 100%;
-display: inline-block;
-}
-
-#about_text div {
-border-radius: 30px; 
-overflow:hidden; 
-margin-left: calc(-40% + 0px);
-margin-top: calc(-125px); 
-height: 175%; 
-line-height: 150%; 
-width: calc(80% - 0px); 
-padding: 50px; 
-text-align: center; 
-position: absolute; 
-left: 50%; 
-top: 50%; 
-background-color: rgba(0, 0, 0, 0.5);
-color: white; 
-}
-
-@media screen and (max-width: 600px) {
-  
-  /* Moving the jumbotron up a bit on mobile so that the arrow down animation can be seen */
-  #jumbotron > div {
-    padding-top: 0vh !important;
-  }
-  
-  /* Cocktail pngs */
-  #about {
-    height: 150vh !important;
-  }
-  /* Overlay and text */
-  #about_text {
-    margin-top: calc(-10%);
-      /* iOS needs flex below */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: calc(20% + 0px);
-  }
-  #about_text div {
-    /* Needs to be -275 for ios */
-    margin-top: -275px !important;
-    margin-left: calc(-100% + 30px) !important;
-    padding: 30px; 
-    width: 150% !important;
-    height: 115%;
-    line-height: 175%; 
-  }
-    
-  #mojito {
-    margin-left: 15% !important;
-    height: auto !important;
-  }
-  #fashioned {
-    margin-left: 10% !important;
-    height: auto !important;
-  }
-  #gt {
-    margin-left: 15% !important;
-    height: auto !important;
-  }
-  
-}
-
-/* #bartender {
-  margin-top: calc(-40%); 
-  /* display: block; */
-  /* text-align: center; 
-  justify-content: center; 
-  position: relative;
-  } */
-  
+/*-- Top section --*/
+@media screen and (max-width: 9999px) {
   #bartender img {
   width: 200px;
   height: 100%;
   display: inline-block;
   }
+}
 
-  #cocktail img {
-    width: 75px;
-    height: 100%;
-    display: inline-block;
-  }
-
-  #fashioned {
-    margin-top: 50px;
-  }
-
-  #mojito {
-    margin-left: 20px;
-  }
-
-  #gt {
-    margin-top: 35px;
-    width: 100px !important;
-  }
-
-
-/* // LAGGY ON SAFARI */
-/* Add animation to "page content" */
-.animate-bottom {
+/*-- About text and images block --*/
+@media screen and (max-width: 9999px) {
+  /* About container for images and text */
+  #about_text {
+  margin-top: 30vh;
+  margin-bottom: 15vh;
   position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
-  animation-name: animatebottom;
-  animation-duration: 1s
+  }
+  
+  /* About images */
+  #about_text img {
+  width: 100px;
+  height: 100%;
+  /* display: inline-block; */
+  }
+  
+  /* About text */
+  #about_text div {
+  position: absolute; 
+  
+  border-radius: 30px; 
+  overflow:hidden; 
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: -15%; 
+
+  line-height: 150%; 
+  width: auto; 
+  padding: 5%; 
+  top: 50%;
+  
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white; 
+  
+  /* left: 50%;  */
+  /* height: 175%;  */
+  }
+  
+  #fashioned {
+  margin-top: -40px;
+  }
+  
+  #mojito {
+  margin-left: 20px;
+  margin-top: -75px;
+  }
+  
+  #gt {
+  margin-top: -75px;
+  }
+
+  #about_search a, #about_search a:hover {
+    /* color: gray; */
+    /* visited, active link */
+    color: #4b4b4b;
+    text-decoration: none;
+  }
+
 }
 
-@-webkit-keyframes animatebottom {
-  from { bottom:-200px; opacity:0 } 
-  to { bottom:0px; opacity:1 }
+/*-- Footer --*/
+@media screen and (max-width: 9999px) {
+  #cocktail img {
+  width: 75px;
+  height: 100%;
+  display: inline-block;
+  }
+  
+  #footer {
+  height: 50vh; 
+  padding-top: 15vh;
+  }
 }
 
-@keyframes animatebottom { 
-  from{ bottom:-200px; opacity:0 } 
-  to{ bottom:0; opacity:1 }
-}
-
+/*-- Slideanim, slide, fadein and animate-bottom animations --*/
+@media screen and (max-width: 9999px) {
 /*Demonstrate CSS classes (PASSIVE) (<style> needs to be included in the <head> of the html file if used directly and class="" needs to be included in the selector)*/
-
 /* Use class="slideanim" only incl. the js code to enable the keyframe animations when scrolling to that element. Use class="slide" if the animation should appear when the page is loaded */
 /*Sliding animation*/
-.slideanim {visibility:hidden;}
+.slideanim {
+  visibility:hidden;
+}
 .slide {
   /* The name of the animation */
   animation-name: slide;
@@ -161,7 +133,6 @@ color: white;
   /* Make the element visible */
   visibility: visible;
 }
-
 /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
 @keyframes slide {
   0% {
@@ -183,7 +154,6 @@ color: white;
     -webkit-transform: translateY(0%);
   }
 }
-
 .fadein {
   animation-name: fadein;
   -webkit-animation-name: fadein;
@@ -191,7 +161,6 @@ color: white;
   -webkit-animation-duration: 5s;
   visibility: visible;
 }
-
 @keyframes fadein {
   0% {
     opacity: 0;
@@ -208,45 +177,67 @@ color: white;
     opacity: 1;
   }
 }
-
-.center-con, .center-con > a {
-  display: flex;
-  height: 15vh;
-  align-items: center;
-  justify-content: center;
+/* NOT IN USE LAGGY ON SAFARI */
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+@-webkit-keyframes animatebottom {
+  from { bottom:-200px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+@keyframes animatebottom { 
+  from{ bottom:-200px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
 }
 
-
+/*-- Arrow down SVG animation --*/
+@media screen and (max-width: 9999px) {
+  .right {
+    transform: rotate(-90deg);
+  }
+  
+  .center-con, .center-con > a {
+  display: flex;
+  justify-content: center !important;
+  padding-top: 5vh;
+  
+}
 .round {
-  position: absolute;
+  position: relative;
   border: 2px solid #4b4b4b;
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  
 }
-
 #cta {
-  width:100%; cursor: pointer; position: absolute;
+  width:100%; 
+  cursor: pointer; 
+  position: relative;
 }
-
-#cta .arrow 
-{left: 30%;}
-.arrow 
-{position: absolute; bottom: 0;  margin-left:2px; width: 12px; height: 12px; background-size: contain; top:13px;}
-.secondary 
-{margin-left: 2px; top: 19px;}
-.next 
-{background-image: url(/static/icons/down-arrow.svg);
+#cta .arrow {
+  left: 30%;
 }
-
+.arrow { 
+  position: absolute; bottom: 0;  margin-left:2px; width: 12px; height: 12px; background-size: contain; top:13px;
+}
+.secondary { 
+  margin-left: 2px; top: 19px;
+}
+.next { 
+  background-image: url(/static/icons/down-arrow.svg);
+}
 .round .arrow {
   animation-name: bounceAlpha;
   animation-duration:1.4s;
   animation-iteration-count:infinite;
   animation-timing-function:linear;
 }
-
 .round .arrow.primary{
   animation-name: bounceAlpha;
   animation-duration:1.4s;
@@ -254,10 +245,88 @@ color: white;
   animation-iteration-count:infinite;
   animation-timing-function:linear;
 }
-
 @keyframes bounceAlpha {
 0% {opacity: 1; transform: translateY(0px) scale(1);}
 25%{opacity: 0; transform:translateY(10px) scale(0.9);}
 26%{opacity: 0; transform:translateY(-10px) scale(0.9);}
 55% {opacity: 1; transform: translateY(0px) scale(1);}
+}
+}
+
+/*-- iPhone 8 Plus --*/
+@media screen and (max-width: 600px) {
+  
+  /* About text */
+  #about_text {
+    margin-top: 0vh !important;
+      /* iOS needs flex below */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ 
+  }
+ 
+  #about_text div {  
+    margin-top: -45%;
+  }
+    
+  #fashioned {
+    margin-left: auto;
+    margin-right: auto;
+    height: auto !important;
+    margin-top: 50px;
+  }
+
+  #mojito {
+    margin-left: 40%;
+    margin-right: auto;
+    height: auto !important;
+    margin-top: 10px;
+  }
+  
+  #gt {
+    margin-left: auto;
+    margin-right: auto;
+    height: auto !important;
+    margin-top: 15px;
+  }
+
+  #about > .center-con, #about > .center-con > a {
+    margin-top: -6vh !important;
+  }
+
+  #about_search > .center-con, #about_search > .center-con > a {
+    margin-top: 3vh !important;
+  }
+  
+}
+
+/*-- iPhone 8 --*/
+@media screen and (max-width: 400px) {
+
+  #about_text div {  
+    margin-top: -55% !important;
+  }
+
+  #mojito {
+    margin-left: 38% !important;
+  }
+
+}
+
+/*-- iPhone SE --*/
+@media screen and (max-width: 350px) {
+
+  body {
+    font-size: 0.85em;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  #about_text img {
+    width: 30% !important;
+  }
+
 }

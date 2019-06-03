@@ -3,11 +3,36 @@
   border: 2px solid #f39c12 !important;
   border-color: #f39c12 !important;
 }
-/* Preloader properties */
-/* Center the loader */
-/* Animation load order was originally 0.5 for transform and 1.3 for filling. the svg is now directly referenced in the html*/
 
-#loader {
+/*-- General layout and misc --*/
+@media screen and (max-width: 9999px) {
+  #cocktailSection {
+  display: none;
+  position: relative;
+  }
+
+  #search_results {
+  display: none; 
+  position: relative;
+  text-align: right;
+  }
+
+  /* Used for no results */
+  #bartender_search img {
+  width: 150px;
+  height: 100%;
+  display: inline-block;
+  }
+
+  .badge-dark {
+  color:#bdc3c7 !important;
+  }
+}
+
+/*-- Page preloader and favorites badge loader --*/
+@media screen and (max-width: 9999px) {
+  #loader {
+  /* Animation load order was originally 0.5 for transform and 1.3 for filling. the svg is now directly referenced in the html*/
   position: absolute;
   height: 100px;
   width: 100px;
@@ -33,6 +58,18 @@
   
 }
 
+/* Badge loader */
+[name="favorite_loader"] {
+  display: none;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  z-index: 9999999;
+  margin-left: -40px;
+  margin-top: -15px;
+  
+}
+
 /* Used for the spinner that is now disabled */
 /* @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
@@ -44,14 +81,10 @@
   100% { transform: rotate(360deg); }
 } */
 
-/* Used for no results */
-#bartender_search img {
-  width: 150px;
-  height: 100%;
-  display: inline-block;
-  }
+}
 
-/* Card flip customizations */
+/*-- Card flip --*/
+@media screen and (max-width: 9999px) {
 /* https://www.webnots.com/bootstrap-4-flip-card-widget/ */
 /*<div class="image-flip">
     <div class="mainflip">
@@ -135,16 +168,10 @@ background: transparent;
 -ms-transform: rotateY(-180deg);
 transform: rotateY(-180deg);
 }
-
-#search_results {
-  display: none; 
-  position: relative;
 }
 
-.badge-dark {
-  color:#bdc3c7 !important;
-}
-
+/*-- Card --*/
+@media screen and (max-width: 9999px) {
 /* Overflow hidden is important to make sure that the background overlay image and the footer background color is contained */
 .card {
 /* top: 10px;
@@ -228,48 +255,73 @@ color: #bdc3c7;
 list-style-image: url('/static/icons/icon.svg');    
 }
 
-/* To be deleted when demo card has been done */
-/* 
-#demo_front, #demo_back {
-  width: 25% !important; 
-  margin-left: 37%;
-}
-
-@media screen and (max-width: 600px) {
-  #demo_front, #demo_back {
-    width: 100% !important; 
-    margin-left: 0%;
-  }
-}
-   */
-
 /* Float four columns side by side */
 .column {
-float: left;
-width: 25%;
-padding: 10px 10px 10px 10px;
+  float: left;
+  width: 25%;
+  padding: 10px 10px 10px 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  /* Disabled as now being used directly in cocktail section as it was interferring with the search bar earlier */
+  /* .row {margin: 0 -5px;} */
+  
+  /* Clear floats after the columns */
+  .row:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
+
+  /* scroll on back of card: Make sure that the height here is adjust to watever the card is decided to be */
+.scroll {
+  max-height: 400px;
+  overflow-y: auto;
+  }
+  
+  /* ICON BADGES */
+  .card .card-badge {
+  position:absolute;
+  top: 270px;
+  right: 15px;
+  color: #f39c12;
+  /* transform:rotate(-20deg); */
+  z-index: 20;
+  font-size: 30px;
+  }
+  
+  /* Can be used at a later stage but as this is mostly relevant for pc browsers then it is not used 
+  Implementation could be that it is showing the full icon when hovering */
+  /* .fa:hover, .far:hover, .fas:hover {
+    color: #f39c12 !important;
+  } */
+
 }
 
-/* Remove extra left and right margins, due to padding */
-/* Disabled as now being used directly in cocktail section as it was interferring with the search bar earlier */
-/* .row {margin: 0 -5px;} */
+/*-- Load more at the bottom of the search results --*/
+@media screen and (max-width: 9999px) {
+  
+  .mybtn {
+  /* border-color: #f39c12 !important; */
+  border-color: #1c1e1f !important;
+  background-color: #1c1e1f !important;
+  border-radius: 10px 10px 10px 10px;
+  border-width: 2px;
+  margin-top: 40px;
+  }
 
-/* Clear floats after the columns */
-.row:after {
-content: "";
-display: table;
-clear: both;
 }
 
-/* Responsive columns */
+/*-- Responsive columns --*/
 @media screen and (max-width: 1112px) {
   .column {
-    width: 33%;
+    width: 25%;
     display: block;
     margin-bottom: 10px;
   }
 }
 
+/*-- Responsive columns --*/
 @media screen and (max-width: 800px) {
   .column {
     width: 50%;
@@ -278,124 +330,63 @@ clear: both;
   }
 }
 
-/* Hiding the search bar in navigation when it appears in the body */
-/* Fixing the button length when smaller screen size */
-@media screen and (max-width: 768px) {
-  .btn {
-      width: 90%;
-      display: block;
-      margin-left: 15px;
-  }
-  #nav_search, #nav_favorites {
-    display: none;
-  }
-  #page_search, #page_favorites a {
-    display: block !important;
-  }
-  
-  #page_favorites a {
-    padding: 5px;
-  }
-
-  #page_favorites .far {
-    color: #f39c12 !important;
-  }
-
-  #page_favorites {
-    margin-left: 5px; 
-    height: 38px;
-  }
-
-}
-
+/*-- Responsive columns --*/
 @media screen and (max-width: 600px) {
   .column {
       width: 100%;
       display: block;
       margin-bottom: 10px;
   }
+}
+
+/*-- iPhone SE error text size and iPhone 8 alignment --*/
+@media screen and (max-width: 400px) {
+  #bartender_search + h4 {
+    font-size: calc(1rem * 1.30);
+  }
+}
+
+/*-- iPhone SE error text size and search results text size--*/
+@media screen and (max-width: 350px) {
+  #bartender_search + h4 {
+    font-size: calc(1rem * 1.10);
+  }
+  
+  #search_results > h4 {
+    font-size: calc(1rem * 1.10);
+  }
+}
+
+/*-- Hiding the search bar in navigation when it appears in the body and aligning the search results --*/
+@media screen and (max-width: 768px) {
+ 
   #nav_search, #nav_favorites {
     display: none;
   }
   #page_search, #page_favorites a {
     display: block !important;
   }
-  
-  #page_favorites a {
-    padding: 5px;
-  }
 
+  /* Needed for the searchbar and the heart icon to be displayed on the same line for smaller screens */
+  #page_search input {
+    width: 100% !important;
+  }
+  
   #page_favorites .far {
     color: #f39c12 !important;
+  }
+
+  #page_favorites a {
+    padding: 5px;
   }
 
   #page_favorites {
     margin-left: 5px; 
     height: 38px;
   }
- 
 
-  /* In order to center the error message on mobile */
-  #error_message {
-    margin-left: -15px !important;
+  #search_results {
+    text-align: center;
   }
 
 }
-
-/* scroll on back of card: Make sure that the height here is adjust to watever the card is decided to be */
-.scroll {
-max-height: 400px;
-overflow-y: auto;
-}
-
-/* ICON BADGES */
-.card .card-badge {
-position:absolute;
-top: 270px;
-right: 15px;
-color: #f39c12;
-/* transform:rotate(-20deg); */
-z-index: 20;
-font-size: 30px;
-}
-
-/* Can be used at a later stage but as this is mostly relevant for pc browsers then it is not used 
-Implementation could be that it is showing the full icon when hovering */
-/* .fa:hover, .far:hover, .fas:hover {
-  color: #f39c12 !important;
-} */
-
-#cocktailSection {
-display: none;
-text-align: center;
-position: relative;
-margin: 0 -10px;
-}
-
-/* Used for the load more button at the end of the page */
-#loadremaining {
-  /* border-color: #f39c12 !important; */
-border-color: #1c1e1f !important;
-margin-top: 40px;
-background-color: #1c1e1f !important;
-border-radius: 10px 10px 10px 10px;
-border-width: 2px;
-}
-
-#loadremaining_wrapper {
-  display: none;
-  text-align: center;
-  position: relative;
-  margin: 0 -10px;
-  }
-
-  [name="favorite_loader"] {
-    display: none;
-    position: absolute;
-    height: 50px;
-    width: 50px;
-    z-index: 9999999;
-    margin-left: -40px;
-    margin-top: -15px;
-    
-  }
