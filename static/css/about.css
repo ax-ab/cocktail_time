@@ -34,6 +34,11 @@ color: #f39c12 !important;
 
 /*-- Top section --*/
 @media screen and (max-width: 9999px) {
+  
+  #jumbotron_contents {
+    margin-top: 5vh;
+  }
+  
   #bartender img {
   width: 200px;
   height: 100%;
@@ -303,6 +308,10 @@ color: #f39c12 !important;
 
 /*-- iPhone 8 --*/
 @media screen and (max-width: 400px) {
+
+  #jumbotron_contents {
+    margin-top: 0vh;
+  }
 
   #about_text div {  
     margin-top: -55% !important;
