@@ -339,11 +339,12 @@ color: #f39c12 !important;
 
 }
 
-/* SG S5 */
+/*-- SG S5 --*/
 @media screen and (max-width: 360px) {
 
   #about > .center-con, #about > .center-con > a {
     margin-top: -5vh !important;
+}
 }
 
 /*-- iPhone SE --*/
