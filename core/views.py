@@ -175,3 +175,6 @@ def clear_favorites(request):
             messages.success(request, 'Your favorites have been cleared')
             
     return render(request, 'users/profile.html')
+
+def ar(request):
+    return render(request, 'core/ar.html')

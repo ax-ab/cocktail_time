@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block static %}
+
+{% endblock %}
+{% block title %}
+    AR Demo
+{% endblock %}
+
+{% block main %}
+
+<a rel="ar" href="{% static 'ar/baby.usdz' %}">
+    <img src="{% static 'images/baby.png' %}">
+</a>
+
+{% endblock %}
