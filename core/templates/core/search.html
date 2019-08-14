@@ -79,7 +79,7 @@
                                 <div class="card-body">
                                     <h4 class="card-title">{{ r.strDrink | truncatechars:40 }}</h4>
                                     <p class="card-text">
-                                
+                                        <ul>
                                             {% if r.strIngredient1 %}
                                             <li name="ingredient-front">
                                                 {{ r.strIngredient1 }}
@@ -112,7 +112,7 @@
                                             <span name="ingredient-front">...</span>
                                             {% else %}
                                             {% endif %}
-                                            
+                                        </ul>
                                     </p>
                 
                                 </div>
@@ -135,112 +135,112 @@
                                         
                                                 <h5 class="card-title">{{ r.strDrink }}</h5>
                                                 <p class="card-text">
+                                                    <ul>
+                                                        {% if r.strIngredient1 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient1 }} {% if r.strMeasure1 %}({{ r.strMeasure1 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %} 
+                                                        {% endif %}
+                                    
+                                                        {% if r.strIngredient2 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient2 }} {% if r.strMeasure2 %}({{ r.strMeasure2 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
+                                    
+                                                        {% if r.strIngredient3 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient3 }} {% if r.strMeasure3 %}({{ r.strMeasure3 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
+                                    
+                                                        {% if r.strIngredient4 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient4 }} {% if r.strMeasure4 %}({{ r.strMeasure4 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
+                                    
+                                                        {% if r.strIngredient5 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient5 }} {% if r.strMeasure5 %}({{ r.strMeasure5 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient1 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient1 }} {% if r.strMeasure1 %}({{ r.strMeasure1 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %} 
-                                                    {% endif %}
-                                
-                                                    {% if r.strIngredient2 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient2 }} {% if r.strMeasure2 %}({{ r.strMeasure2 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
-                                
-                                                    {% if r.strIngredient3 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient3 }} {% if r.strMeasure3 %}({{ r.strMeasure3 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
-                                
-                                                    {% if r.strIngredient4 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient4 }} {% if r.strMeasure4 %}({{ r.strMeasure4 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
-                                
-                                                    {% if r.strIngredient5 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient5 }} {% if r.strMeasure5 %}({{ r.strMeasure5 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient6 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient6 }} {% if r.strMeasure6 %}({{ r.strMeasure6 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
+                                                        
+                                                        {% if r.strIngredient7 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient7 }} {% if r.strMeasure7 %}({{ r.strMeasure7 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient6 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient6 }} {% if r.strMeasure6 %}({{ r.strMeasure6 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
-                                                    
-                                                    {% if r.strIngredient7 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient7 }} {% if r.strMeasure7 %}({{ r.strMeasure7 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient8 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient8 }} {% if r.strMeasure8 %}({{ r.strMeasure8 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient8 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient8 }} {% if r.strMeasure8 %}({{ r.strMeasure8 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient9 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient9 }} {% if r.strMeasure9 %}({{ r.strMeasure9 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient9 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient9 }} {% if r.strMeasure9 %}({{ r.strMeasure9 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient10 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient10 }} {% if r.strMeasure10 %}({{ r.strMeasure10 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient10 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient10 }} {% if r.strMeasure10 %}({{ r.strMeasure10 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient11 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient11 }} {% if r.strMeasure11 %}({{ r.strMeasure11 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient11 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient11 }} {% if r.strMeasure11 %}({{ r.strMeasure11 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient12 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient12 }} {% if r.strMeasure12 %}({{ r.strMeasure12 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient12 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient12 }} {% if r.strMeasure12 %}({{ r.strMeasure12 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient13 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient13 }} {% if r.strMeasure13 %}({{ r.strMeasure13 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient13 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient13 }} {% if r.strMeasure13 %}({{ r.strMeasure13 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient14 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient14 }} {% if r.strMeasure14 %}({{ r.strMeasure14 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient14 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient14 }} {% if r.strMeasure14 %}({{ r.strMeasure14 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
-
-                                                    {% if r.strIngredient15 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient15 }} {% if r.strMeasure15 %}({{ r.strMeasure15 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
-
+                                                        {% if r.strIngredient15 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient15 }} {% if r.strMeasure15 %}({{ r.strMeasure15 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
+                                                    </ul>
                                                 </p>
                                                 <p class="card-text">{{ r.strInstructions }}</p>
                                             </div>
@@ -282,10 +282,10 @@
                                 <div class="card-body">
                                     <h4 class="card-title">{{ r.strDrink | truncatechars:40 }}</h4>
                                     <p class="card-text">
-                                
+                                        <ul>
                                             {% if r.strIngredient1 %}
                                             <li name="ingredient-front">
-                                                {{ r.strIngredient1 }}
+                                               {{ r.strIngredient1 }}
                                             </li>
                                             {% else %} 
                                             {% endif %}
@@ -315,7 +315,7 @@
                                             <span name="ingredient-front">...</span>
                                             {% else %}
                                             {% endif %}
-                                            
+                                        </ul>    
                                     </p>
                 
                                 </div>
@@ -338,112 +338,112 @@
                                         
                                                 <h5 class="card-title">{{ r.strDrink }}</h5>
                                                 <p class="card-text">
+                                                    <ul>
+                                                        {% if r.strIngredient1 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient1 }} {% if r.strMeasure1 %}({{ r.strMeasure1 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %} 
+                                                        {% endif %}
+                                    
+                                                        {% if r.strIngredient2 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient2 }} {% if r.strMeasure2 %}({{ r.strMeasure2 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
+                                    
+                                                        {% if r.strIngredient3 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient3 }} {% if r.strMeasure3 %}({{ r.strMeasure3 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
+                                    
+                                                        {% if r.strIngredient4 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient4 }} {% if r.strMeasure4 %}({{ r.strMeasure4 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
+                                    
+                                                        {% if r.strIngredient5 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient5 }} {% if r.strMeasure5 %}({{ r.strMeasure5 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient1 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient1 }} {% if r.strMeasure1 %}({{ r.strMeasure1 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %} 
-                                                    {% endif %}
-                                
-                                                    {% if r.strIngredient2 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient2 }} {% if r.strMeasure2 %}({{ r.strMeasure2 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
-                                
-                                                    {% if r.strIngredient3 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient3 }} {% if r.strMeasure3 %}({{ r.strMeasure3 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
-                                
-                                                    {% if r.strIngredient4 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient4 }} {% if r.strMeasure4 %}({{ r.strMeasure4 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
-                                
-                                                    {% if r.strIngredient5 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient5 }} {% if r.strMeasure5 %}({{ r.strMeasure5 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient6 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient6 }} {% if r.strMeasure6 %}({{ r.strMeasure6 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
+                                                        
+                                                        {% if r.strIngredient7 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient7 }} {% if r.strMeasure7 %}({{ r.strMeasure7 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient6 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient6 }} {% if r.strMeasure6 %}({{ r.strMeasure6 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
-                                                    
-                                                    {% if r.strIngredient7 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient7 }} {% if r.strMeasure7 %}({{ r.strMeasure7 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient8 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient8 }} {% if r.strMeasure8 %}({{ r.strMeasure8 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient8 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient8 }} {% if r.strMeasure8 %}({{ r.strMeasure8 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient9 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient9 }} {% if r.strMeasure9 %}({{ r.strMeasure9 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient9 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient9 }} {% if r.strMeasure9 %}({{ r.strMeasure9 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient10 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient10 }} {% if r.strMeasure10 %}({{ r.strMeasure10 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient10 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient10 }} {% if r.strMeasure10 %}({{ r.strMeasure10 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient11 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient11 }} {% if r.strMeasure11 %}({{ r.strMeasure11 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient11 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient11 }} {% if r.strMeasure11 %}({{ r.strMeasure11 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient12 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient12 }} {% if r.strMeasure12 %}({{ r.strMeasure12 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient12 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient12 }} {% if r.strMeasure12 %}({{ r.strMeasure12 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient13 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient13 }} {% if r.strMeasure13 %}({{ r.strMeasure13 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient13 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient13 }} {% if r.strMeasure13 %}({{ r.strMeasure13 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
+                                                        {% if r.strIngredient14 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient14 }} {% if r.strMeasure14 %}({{ r.strMeasure14 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
 
-                                                    {% if r.strIngredient14 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient14 }} {% if r.strMeasure14 %}({{ r.strMeasure14 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
-
-                                                    {% if r.strIngredient15 %}
-                                                    <li name="ingredient-back">
-                                                        {{ r.strIngredient15 }} {% if r.strMeasure15 %}({{ r.strMeasure15 }}){% else %}{% endif %}
-                                                    </li>
-                                                    {% else %}
-                                                    {% endif %}
-
+                                                        {% if r.strIngredient15 %}
+                                                        <li name="ingredient-back">
+                                                            {{ r.strIngredient15 }} {% if r.strMeasure15 %}({{ r.strMeasure15 }}){% else %}{% endif %}
+                                                        </li>
+                                                        {% else %}
+                                                        {% endif %}
+                                                    </ul>
                                                 </p>
                                                 <p class="card-text">{{ r.strInstructions }}</p>
                                             </div>

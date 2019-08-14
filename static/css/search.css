@@ -187,6 +187,12 @@ background-color: transparent;
 /* color: #ffff; */
 }
 
+/* Below is for the card text list not to be to indentented  */
+.card-text ul {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
 .frontside .card-title, .backside .card-title {
 color: #ecf0f1;
 font-weight: bold;
