@@ -188,7 +188,7 @@ background-color: transparent;
 }
 
 /* Below is for the card text list not to be to indentented  */
-.card-text ul {
+ul {
   list-style-position: inside;
   padding-left: 0;
 }
