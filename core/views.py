@@ -20,11 +20,9 @@ def search(request):
         show_favorites = request.GET.get('show_favorites')
 
     #    If show_favorites is not None and the user is autenticated return all favorites.
-    #    HTML/CSS: if no favorites then new badge text that says that no favorites are selected
         if show_favorites is not None and user.id: 
             
             result_favorites = Cocktail.objects.filter(customuser=user).annotate(user_fav=Value(True, BooleanField())).order_by('idDrink')
-            # print(result_favorites)
             
             error_msg = """You have not added any cocktails 
             to your favorites"""
@@ -58,7 +56,6 @@ def search(request):
             result_final = []
 
             #Removing duplicates
-            #TODO: Search on ID instead .id ...
             for cocktail in non_favorites:
                 if cocktail not in favorites:
                     result_final.append(cocktail)
@@ -66,9 +63,6 @@ def search(request):
                 result_final.append(cocktail)
 
             result_final.sort(key=attrgetter('user_fav'), reverse=True)
-
-            #To be re-used in case that there is another way to make sure that there is no duplicates
-            #result_final = result_annotated
 
             total_items = len(result_final)
             items = request.GET.get('all_items', 12) 
@@ -116,7 +110,6 @@ def search(request):
             'search_location':search_location
             }
         
-    #TODO: Build a post request response as it is not used
     print(context)
     return render(request, 'core/search.html', context)
 
@@ -127,13 +120,9 @@ def update_favorites(request):
         user = request.user
         drink_id = request.POST.get('drink_id','')
         update_type = request.POST.get('update_type')
-        #update_column = request.GET['update_column']
-        # print(drink_id)
-        # print(update_type)
 
         if update_type == 'add':
             
-            #WORKS: print(user.fav_cocktails.all())
             if user.fav_cocktails.filter(idDrink=drink_id):
                 return HttpResponse("Cocktail id: " + drink_id + " - Already favorite")
             else:
@@ -161,7 +150,6 @@ def clear_favorites(request):
         fav_cocktails = list(Cocktail.objects.filter(customuser=user))
         print(fav_cocktails)
 
-        #TODO: Make a call to update favorites through function
         for drink in fav_cocktails:
             if not (user.fav_cocktails.filter(idDrink=drink.idDrink)):
                 print(str(drink) + ' not a favorite')
@@ -175,6 +163,3 @@ def clear_favorites(request):
             messages.success(request, 'Your favorites have been cleared')
             
     return render(request, 'users/profile.html')
-
-def ar(request):
-    return render(request, 'core/ar.html')

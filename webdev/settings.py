@@ -17,14 +17,8 @@ import django_heroku
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-# OLD SECRET_KEY = '&%o@)ed#wmdtfvw14g9#9e=up18yn+2d32b^n#c7_1x^2t%cy!'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'cocktailtime.herokuapp.com']
@@ -87,21 +81,7 @@ DATABASES = {
         'HOST': '',
         'PORT': '',
     },
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'default.sqlite3'),
-    # },
-    # 'display': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'display.sqlite3'),
-    # },
-    # 'users': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'users.sqlite3'),
-    # },  
 }
-
-#DATABASE_ROUTERS = ['webdev.dbrouter.CustomDatabaseRouter',]
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

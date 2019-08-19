@@ -5,8 +5,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
 from core.models import Cocktail
 
-# from .decorators import student_required
-
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -14,15 +12,9 @@ def register(request):
         if form.is_valid():
             new_user = form.save(commit=False)
             
-            #new_user.is_student = True
             new_user.save()
             
-            # https://getbootstrap.com/docs/4.0/components/alerts/
-            messages.success(request, 'Welcome! You are now logged in')
-            # BELOW IS NOT NEEDED AS THE USER IS ALREADY AUTHENTICATED WHEN CREATED
-            # new_user = authenticate(username=form.cleaned_data['email'],
-            #                         password=form.cleaned_data['password'],
-            #                         )
+            messages.success(request, 'Welcome! You are now logged in')                   )
             login(request, new_user)
         
             return redirect('/profile')
@@ -33,7 +25,6 @@ def register(request):
     return render(request, 'users/register.html', {'form':form})
 
 @login_required
-#@student_required
 def profile(request):
     
     user = request.user

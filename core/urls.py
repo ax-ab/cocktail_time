@@ -6,6 +6,5 @@ urlpatterns = [
     path('', core_views.about, name='about'),
     path('search/', core_views.search, name='search'),
     path('update_favorites/', core_views.update_favorites, name='update-favorites'),
-    path('clear_favorites', core_views.clear_favorites, name='clear-favorites'),
-    path('ar/', core_views.ar, name='ar')
+    path('clear_favorites', core_views.clear_favorites, name='clear-favorites')
 ]

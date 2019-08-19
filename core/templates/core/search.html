@@ -39,7 +39,6 @@
 </form>
 
  
-<!-- Using "object" as this was the way to make sure the animation resetted each time and not using a cached version. previosuly "div" -->
 <object id="loader" type="image/svg+xml" data="{% static "icons/loader.svg" %}"></object>
 
 {% if result and search_location == 'query' %}
@@ -47,10 +46,6 @@
     <h4><span class="badge badge-dark">Showing {{ items }} out of {{ total_items }} cocktails</span></h4>
 </div>
 {% endif %}
-
-<!-- id below is used for the preloader -->
-<!-- TODO: test animate-bottom on mobile. laggy on safari but not chrome -->
-<!-- Row is not needed as we have moved the margin to cocktail section -->
 
 {% if search_location == 'query' and result or search_location == 'favorites' and result %}
     <div id="cocktailSection" class="row">

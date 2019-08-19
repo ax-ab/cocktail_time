@@ -11,7 +11,6 @@ class CustomUserCreationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(CustomUserCreationForm, self).__init__(*args, **kwargs)
 
-        #Adding placeholders
         self.helper = FormHelper()
         # Below is to use the bootstrap validation fields instead
         self.helper.attrs = {'novalidate': ''}
@@ -24,13 +23,13 @@ class CustomUserCreationForm(UserCreationForm):
                 Submit('register', 'Register', css_class='submit-button')
             )
         )
-        # Below is to disable the labels for each field
+      
         self.helper.form_show_labels = False
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
         fields = ('email',)
-        # Add more fields here if needed.
+      
 
 # Only used to modify the form template and no view is implemented as this form is parsed in directly via urls.py
 class CustomLoginForm(AuthenticationForm):
@@ -48,7 +47,7 @@ class CustomLoginForm(AuthenticationForm):
                 Submit('login', 'Login', css_class='submit-button')
             )
         )
-        # Below is to disable the labels for each field
+        
         self.helper.form_show_labels = False
 
 # Only used to modify the form template and no view is implemented as this form is parsed in directly via urls.py
@@ -75,7 +74,6 @@ class CustomSetPasswordForm(SetPasswordForm):
         super(CustomSetPasswordForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper()
-        # Below is to use the bootstrap validation fields instead
         self.helper.attrs = {'novalidate': ''}
 
         self.helper.layout = Layout(
@@ -85,7 +83,7 @@ class CustomSetPasswordForm(SetPasswordForm):
                 Submit('','Reset password', css_class='submit-button')
             )
         )
-        # Below is to disable the labels for each field
+
         self.helper.form_show_labels = False
 
 # Only used to modify the form template and no view is implemented as this form is parsed in directly via urls.py
@@ -94,7 +92,6 @@ class CustomPasswordChangeForm(PasswordChangeForm):
         super(CustomPasswordChangeForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper()
-        # Below is to use the bootstrap validation fields instead
         self.helper.attrs = {'novalidate': ''}
 
         self.helper.layout = Layout(
@@ -105,7 +102,7 @@ class CustomPasswordChangeForm(PasswordChangeForm):
                 Submit('','Update password', css_class='submit-button')
             )
         )
-        # Below is to disable the labels for each field
+       
         self.helper.form_show_labels = False
 
 class CustomUserChangeForm(UserChangeForm):

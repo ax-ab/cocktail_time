@@ -1,7 +1,4 @@
-// Page preloader. 1800 is exactly the time it takes for the full animation to complete
 var isSearchLandingPage = (window.location.pathname == '/search/' && window.location.search == '');
-// Below works but not to be used in current implementation
-// var iOSSafari = /iP(ad|od|hone)/i.test(window.navigator.userAgent) && /WebKit/i.test(window.navigator.userAgent) && !(/(CriOS|FxiOS|OPiOS|mercury)/i.test(window.navigator.userAgent));
 
 $(window).on('load', function() {
     
@@ -60,34 +57,17 @@ $(window).on('load', function() {
         });
         
         // Scrolling to where we were last when loading all items by looking at html meta data
-        // console.log($("#all_items").attr("value"));
         if ($("#all_items").attr("value") == 'true') {
             window.scrollTo(0, 1028);
-
-            // exact: 1028
-            // new section: 1165
-
-            // Below is not adding smooth scroll to be deleted
-            // $('html, body').animate({
-            // scrollTop: window.scrollTo(0, 1028)
-            // }, 800);
-
-            //DEBUGGING TO DETERMINE EACT POSITION
-            // $(window).scroll(function (event) {
-            //     var scroll = $(window).scrollTop();
-            //     console.log(scroll);
-            // });
             
         }
     });
 });
 
-// Ready is needed because the js reference is placed at the top of the page (head)
 $(document).ready(function() {
 
     //Enables ALL interactivity for the search page (ajax etc.)
     //Disables interactivity for the demosession
-    // console.log(isSearchLandingPage)
     if (!isSearchLandingPage) {
 
         // TOGGLE FLIP CARDS
@@ -100,10 +80,6 @@ $(document).ready(function() {
         
         });
 
-        // TOGGLE FAVORITES
-        // let empty = "fas fa-glass-martini-alt";
-        // let full = "fas fa-glass-martini";
-
         let empty = "far fa-heart card-badge";
         let full = "fas fa-heart card-badge";
         let none = "far fa-heart card-badge ";
@@ -112,10 +88,6 @@ $(document).ready(function() {
 
             var drink_id;
             drink_id = $(this).attr('id');
-
-            // console.log("id: " + drink_id);
-            // console.log("class: " + $(this).attr('class'));
-            // console.log("name: " + $(this).attr('name'));
 
             if (this.className === empty) {
                 ajax_update_fav(drink_id, 'add');
