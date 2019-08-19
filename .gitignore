@@ -1,6 +1,7 @@
 #Project specific
 temp/
 scripts/
+.vscode/
 
 #MAC
 .DS_Store
